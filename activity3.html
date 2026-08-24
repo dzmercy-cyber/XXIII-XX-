@@ -1,0 +1,641 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Catch My Heart ♡</title>
+
+<style>
+@import url('https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;500;600&family=Great+Vibes&display=swap');
+
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+}
+
+body{
+    min-height:100vh;
+    overflow:hidden;
+
+    background:
+        radial-gradient(circle at center,#43192b,#180b13 50%,#060608);
+
+    color:white;
+    font-family:'Cormorant Garamond',serif;
+}
+
+/* GLOW */
+
+.glow{
+    position:fixed;
+
+    width:450px;
+    height:450px;
+
+    left:50%;
+    top:50%;
+
+    transform:translate(-50%,-50%);
+
+    background:#d43d78;
+
+    filter:blur(180px);
+
+    opacity:.13;
+
+    animation:pulse 5s ease-in-out infinite alternate;
+}
+
+@keyframes pulse{
+
+    from{
+        transform:translate(-50%,-50%) scale(.8);
+    }
+
+    to{
+        transform:translate(-50%,-50%) scale(1.3);
+    }
+}
+
+
+/* MAIN */
+
+.container{
+
+    position:relative;
+
+    z-index:5;
+
+    min-height:100vh;
+
+    display:flex;
+
+    flex-direction:column;
+
+    align-items:center;
+
+    justify-content:center;
+
+    text-align:center;
+}
+
+.chapter{
+
+    font-size:11px;
+
+    letter-spacing:5px;
+
+    text-transform:uppercase;
+
+    color:#c9a4b2;
+
+    margin-bottom:15px;
+}
+
+h1{
+
+    font-family:'Great Vibes',cursive;
+
+    font-size:clamp(55px,8vw,85px);
+
+    font-weight:400;
+
+    color:#ffe8ef;
+}
+
+.subtitle{
+
+    margin-top:8px;
+
+    color:#b99aa6;
+
+    font-size:18px;
+
+    font-style:italic;
+}
+
+
+/* GAME AREA */
+
+.game{
+
+    position:relative;
+
+    width:min(650px,90vw);
+
+    height:330px;
+
+    margin-top:25px;
+
+    border-radius:25px;
+
+    border:1px solid rgba(180,70,110,.25);
+
+    background:rgba(10,5,9,.3);
+
+    box-shadow:
+        inset 0 0 50px rgba(255,70,130,.03);
+
+    overflow:hidden;
+}
+
+
+/* HEART */
+
+.heart{
+
+    position:absolute;
+
+    width:65px;
+
+    height:65px;
+
+    display:flex;
+
+    align-items:center;
+
+    justify-content:center;
+
+    cursor:pointer;
+
+    color:#ff729c;
+
+    font-size:50px;
+
+    filter:
+        drop-shadow(
+            0 0 12px rgba(255,80,140,.5)
+        );
+
+    transition:
+        left .35s ease,
+        top .35s ease,
+        transform .2s ease;
+
+    user-select:none;
+}
+
+.heart:hover{
+
+    transform:scale(1.2);
+}
+
+.heart:active{
+
+    transform:scale(.7);
+}
+
+
+/* SCORE */
+
+.score{
+
+    margin-top:15px;
+
+    color:#c9a4b2;
+
+    font-size:16px;
+}
+
+.score span{
+
+    color:#ff86a9;
+
+    font-size:19px;
+}
+
+
+/* MESSAGE */
+
+.message{
+
+    min-height:28px;
+
+    margin-top:8px;
+
+    color:#ff9bb7;
+
+    font-size:17px;
+
+    opacity:0;
+
+    transition:.4s;
+}
+
+.message.show{
+
+    opacity:1;
+}
+
+
+/* FINISH */
+
+.finish{
+
+    position:fixed;
+
+    inset:0;
+
+    z-index:20;
+
+    display:none;
+
+    align-items:center;
+
+    justify-content:center;
+
+    text-align:center;
+
+    background:
+        radial-gradient(
+            circle,
+            rgba(70,20,40,.97),
+            #070608
+        );
+
+    animation:finishIn 1s ease;
+}
+
+@keyframes finishIn{
+
+    from{
+        opacity:0;
+    }
+
+    to{
+        opacity:1;
+    }
+}
+
+.finish-content{
+
+    width:90%;
+}
+
+.finish h2{
+
+    font-family:'Great Vibes',cursive;
+
+    font-size:clamp(55px,8vw,85px);
+
+    font-weight:400;
+
+    color:#ffe8ef;
+}
+
+.finish p{
+
+    margin-top:12px;
+
+    color:#c9a4b2;
+
+    font-size:20px;
+
+    font-style:italic;
+}
+
+.continue{
+
+    margin-top:28px;
+
+    padding:13px 34px;
+
+    border-radius:40px;
+
+    border:1px solid #a34063;
+
+    background:rgba(130,30,65,.2);
+
+    color:#ffeaf1;
+
+    font-family:'Cormorant Garamond',serif;
+
+    font-size:17px;
+
+    cursor:pointer;
+
+    transition:.4s;
+}
+
+.continue:hover{
+
+    background:#a72e59;
+
+    transform:translateY(-3px);
+
+    box-shadow:
+        0 10px 35px rgba(255,60,120,.2);
+}
+
+
+/* PARTICLES */
+
+.particle{
+
+    position:fixed;
+
+    left:50%;
+    top:50%;
+
+    z-index:30;
+
+    color:#ff719c;
+
+    font-size:20px;
+
+    pointer-events:none;
+
+    animation:particle 1s ease-out forwards;
+}
+
+@keyframes particle{
+
+    0%{
+
+        transform:
+            translate(-50%,-50%)
+            scale(.4);
+
+        opacity:1;
+    }
+
+    100%{
+
+        transform:
+            translate(
+                calc(-50% + var(--x)),
+                calc(-50% + var(--y))
+            )
+            scale(1.3);
+
+        opacity:0;
+    }
+}
+
+
+/* MOBILE */
+
+@media(max-width:600px){
+
+    .game{
+
+        height:300px;
+
+    }
+
+    .heart{
+
+        font-size:44px;
+
+    }
+
+}
+</style>
+</head>
+
+<body>
+
+<div class="glow"></div>
+
+
+<div class="container">
+
+    <div class="chapter">
+        one tiny game · 04
+    </div>
+
+    <h1>
+        Catch My Heart
+    </h1>
+
+    <div class="subtitle">
+        if you can catch it... ♡
+    </div>
+
+
+    <div class="game" id="game">
+
+        <div
+            class="heart"
+            id="heart"
+            onclick="catchHeart()">
+
+            ♥
+            
+        </div>
+
+    </div>
+
+
+    <div class="score">
+
+        Hearts caught:
+        <span id="score">0</span> / 5
+
+    </div>
+
+
+    <div class="message" id="message"></div>
+
+</div>
+
+
+<!-- FINISH -->
+
+<div class="finish" id="finish">
+
+    <div class="finish-content">
+
+        <div class="chapter">
+            you caught it · ♡
+        </div>
+
+        <h2>
+            You caught my heart...
+        </h2>
+
+        <p>
+            although, I think you already had it.
+        </p>
+
+        <button
+            class="continue"
+            onclick="goFinal()">
+
+            One last thing → 
+
+        </button>
+
+    </div>
+
+</div>
+
+
+<script>
+
+let score=0;
+
+const messages=[
+
+    "There you go... ♡",
+
+    "Okay, you're getting good at this. ♥",
+
+    "That was cute...",
+
+    "Almost there, don't give up ♡",
+
+    "You really caught it..."
+
+];
+
+
+function moveHeart(){
+
+    const game=
+        document.getElementById("game");
+
+    const heart=
+        document.getElementById("heart");
+
+
+    const maxX=
+        game.clientWidth-75;
+
+    const maxY=
+        game.clientHeight-75;
+
+
+    const x=
+        Math.random()*maxX;
+
+    const y=
+        Math.random()*maxY;
+
+
+    heart.style.left=x+"px";
+
+    heart.style.top=y+"px";
+}
+
+
+/* FIRST POSITION */
+
+moveHeart();
+
+
+function catchHeart(){
+
+    score++;
+
+
+    document.getElementById("score")
+        .innerText=score;
+
+
+    createParticles();
+
+
+    const message=
+        document.getElementById("message");
+
+
+    message.innerText=
+        messages[score-1];
+
+
+    message.classList.add("show");
+
+
+    if(score>=5){
+
+        setTimeout(function(){
+
+            document.getElementById("finish")
+                .style.display="flex";
+
+        },700);
+
+        return;
+
+    }
+
+
+    setTimeout(function(){
+
+        message.classList.remove("show");
+
+        moveHeart();
+
+    },400);
+
+}
+
+
+/* PARTICLES */
+
+function createParticles(){
+
+    for(let i=0;i<12;i++){
+
+        const particle=
+            document.createElement("div");
+
+        particle.className="particle";
+
+        particle.innerHTML=
+            Math.random()>.5
+            ? "♡"
+            : "♥";
+
+
+        particle.style.setProperty(
+            "--x",
+            ((Math.random()-.5)*350)+"px"
+        );
+
+
+        particle.style.setProperty(
+            "--y",
+            ((Math.random()-.5)*300)+"px"
+        );
+
+
+        document.body.appendChild(particle);
+
+
+        setTimeout(function(){
+
+            particle.remove();
+
+        },1000);
+
+    }
+
+}
+
+
+/* FINAL */
+
+function goFinal(){
+
+    document.body.style.transition=
+        "1s ease";
+
+    document.body.style.opacity="0";
+
+
+    setTimeout(function(){
+
+        window.location.href="final.html";
+
+    },1000);
+
+}
+
+</script>
+
+</body>
+</html>
