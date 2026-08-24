@@ -7,147 +7,102 @@
 <title>For My Favourite Person ❤️</title>
 
 <style>
-
 @import url('https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;500;600;700&family=Great+Vibes&display=swap');
 
-*{
-    margin:0;
-    padding:0;
-    box-sizing:border-box;
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
 }
 
-html{
-    scroll-behavior:smooth;
+html {
+    scroll-behavior: smooth;
 }
 
-body{
-    min-height:100vh;
+body {
+    min-height: 100vh;
+    overflow-x: hidden;
 
     background:
-        radial-gradient(
-            circle at 50% 20%,
-            rgba(130,35,80,.32),
-            transparent 45%
-        ),
-        radial-gradient(
-            circle at 20% 80%,
-            rgba(100,30,80,.16),
-            transparent 35%
-        ),
+        radial-gradient(circle at 50% 15%, rgba(150, 45, 95, 0.30), transparent 45%),
+        radial-gradient(circle at 15% 80%, rgba(100, 30, 90, 0.18), transparent 35%),
         #08070b;
 
-    color:white;
+    color: white;
+    font-family: "Cormorant Garamond", serif;
+}
 
-    font-family:'Cormorant Garamond',serif;
+.page {
+    width: 100%;
+    min-height: 100vh;
 
-    overflow-x:hidden;
+    display: flex;
+    justify-content: center;
+}
+
+.container {
+    width: min(780px, 94%);
+    min-height: 100vh;
+
+    padding: 55px 25px 100px;
+
+    text-align: center;
 }
 
 
 /* =========================
-   MAIN PAGE
+   HEADER
 ========================= */
 
-.page{
-    width:100%;
-    min-height:100vh;
+.small-title {
+    font-family: "Great Vibes", cursive;
+    font-size: clamp(28px, 5vw, 38px);
 
-    display:flex;
-    justify-content:center;
+    color: #eab4cd;
+
+    margin-bottom: 8px;
+
+    animation: fadeDown 1.2s ease forwards;
 }
 
-.container{
-    width:min(780px,94%);
+.main-title {
+    font-family: "Great Vibes", cursive;
 
-    min-height:100vh;
+    font-size: clamp(48px, 9vw, 72px);
+    font-weight: 400;
 
-    padding:
-        55px
-        25px
-        100px;
+    color: white;
 
-    text-align:center;
-
-    position:relative;
-}
-
-
-/* =========================
-   TITLE
-========================= */
-
-.small-title{
-    font-family:'Great Vibes',cursive;
-
-    font-size:
-        clamp(27px,5vw,38px);
-
-    color:#e9b1ca;
-
-    margin-bottom:8px;
-
-    opacity:0;
-
-    animation:
-        fadeDown 1.3s ease forwards;
-}
-
-
-.main-title{
-    font-family:'Great Vibes',cursive;
-
-    font-size:
-        clamp(48px,9vw,72px);
-
-    font-weight:400;
-
-    color:#fff;
-
-    margin-bottom:8px;
+    margin-bottom: 8px;
 
     text-shadow:
-        0 0 20px rgba(255,100,170,.25);
+        0 0 20px rgba(255, 100, 170, 0.25);
 
-    opacity:0;
-
-    animation:
-        fadeDown 1.6s ease forwards;
+    animation: fadeDown 1.5s ease forwards;
 }
 
+.subtitle {
+    font-size: 20px;
 
-.subtitle{
-    font-size:20px;
+    color: rgba(255,255,255,0.55);
 
-    color:
-        rgba(255,255,255,.55);
+    font-style: italic;
 
-    font-style:italic;
+    margin-bottom: 40px;
 
-    margin-bottom:40px;
-
-    opacity:0;
-
-    animation:
-        fadeDown 1.9s ease forwards;
+    animation: fadeDown 1.8s ease forwards;
 }
 
-
-@keyframes fadeDown{
-
-    from{
-        opacity:0;
-
-        transform:
-            translateY(25px);
+@keyframes fadeDown {
+    from {
+        opacity: 0;
+        transform: translateY(25px);
     }
 
-    to{
-        opacity:1;
-
-        transform:
-            translateY(0);
+    to {
+        opacity: 1;
+        transform: translateY(0);
     }
-
 }
 
 
@@ -155,115 +110,78 @@ body{
    MUSIC CARD
 ========================= */
 
-.music-card{
+.music-card {
+    width: 100%;
 
-    width:100%;
+    padding: 30px 24px;
 
-    padding:
-        30px
-        24px;
+    border-radius: 28px;
 
-    border-radius:28px;
+    border: 1px solid rgba(255,120,170,0.20);
 
-    border:
-        1px solid
-        rgba(255,120,170,.2);
+    background: rgba(255,255,255,0.035);
 
-    background:
-        rgba(255,255,255,.035);
-
-    backdrop-filter:
-        blur(15px);
+    backdrop-filter: blur(15px);
 
     box-shadow:
+        0 20px 70px rgba(0,0,0,0.45),
+        0 0 50px rgba(255,50,140,0.06);
 
-        0 20px 70px
-        rgba(0,0,0,.45),
-
-        0 0 50px
-        rgba(255,50,140,.06);
-
-    animation:
-        cardAppear 1.8s ease forwards;
+    animation: cardAppear 1.7s ease forwards;
 }
 
-
-@keyframes cardAppear{
-
-    from{
-        opacity:0;
-
-        transform:
-            translateY(30px)
-            scale(.97);
+@keyframes cardAppear {
+    from {
+        opacity: 0;
+        transform: translateY(30px) scale(0.97);
     }
 
-    to{
-        opacity:1;
+    to {
+        opacity: 1;
+        transform: translateY(0) scale(1);
+    }
+}
 
-        transform:
-            translateY(0)
-            scale(1);
+.song-heart {
+    font-size: 30px;
+    margin-bottom: 5px;
+
+    animation: heartbeat 2s ease-in-out infinite;
+}
+
+@keyframes heartbeat {
+    0%,100% {
+        transform: scale(1);
     }
 
-}
-
-
-.song-heart{
-
-    font-size:30px;
-
-    margin-bottom:5px;
-
-    animation:
-        heartbeat 2s ease-in-out infinite;
-}
-
-
-@keyframes heartbeat{
-
-    0%,100%{
-        transform:scale(1);
+    50% {
+        transform: scale(1.18);
     }
-
-    50%{
-        transform:scale(1.18);
-    }
-
 }
 
+.song-title {
+    font-family: "Great Vibes", cursive;
 
-.song-title{
+    font-size: clamp(32px, 7vw, 48px);
 
-    font-family:'Great Vibes',cursive;
+    color: #ffd2e4;
 
-    font-size:
-        clamp(32px,7vw,48px);
-
-    color:#ffd2e4;
-
-    margin-bottom:5px;
+    margin-bottom: 5px;
 }
 
+.song-sub {
+    font-size: 18px;
 
-.song-sub{
+    color: rgba(255,255,255,0.52);
 
-    font-size:18px;
+    font-style: italic;
 
-    color:
-        rgba(255,255,255,.52);
-
-    font-style:italic;
-
-    margin-bottom:22px;
+    margin-bottom: 22px;
 }
 
-
-audio{
-
-    width:100%;
-
-    height:52px;
+audio {
+    width: 100%;
+    height: 52px;
 }
 
 
@@ -271,35 +189,28 @@ audio{
    LYRICS HEADER
 ========================= */
 
-.lyrics-heading{
+.lyrics-heading {
+    margin-top: 60px;
+    margin-bottom: 8px;
 
-    margin-top:60px;
+    font-family: "Great Vibes", cursive;
 
-    margin-bottom:8px;
+    font-size: clamp(34px, 7vw, 50px);
 
-    font-family:'Great Vibes',cursive;
-
-    font-size:
-        clamp(34px,7vw,50px);
-
-    color:#efb9d1;
+    color: #efb9d1;
 
     text-shadow:
-        0 0 20px
-        rgba(255,100,170,.18);
+        0 0 20px rgba(255,100,170,0.18);
 }
 
+.lyrics-note {
+    color: rgba(255,255,255,0.43);
 
-.lyrics-note{
+    font-size: 17px;
 
-    color:
-        rgba(255,255,255,.43);
+    font-style: italic;
 
-    font-size:17px;
-
-    font-style:italic;
-
-    margin-bottom:30px;
+    margin-bottom: 30px;
 }
 
 
@@ -307,140 +218,102 @@ audio{
    LYRICS AREA
 ========================= */
 
-.lyrics-stage{
+.lyrics-stage {
+    width: 100%;
 
-    width:100%;
+    min-height: 700px;
 
-    min-height:650px;
+    padding: 35px 5px 60px;
 
-    padding:
-        30px
-        5px
-        50px;
+    display: flex;
 
-    display:flex;
+    flex-direction: column;
 
-    flex-direction:column;
-
-    align-items:center;
-
-    justify-content:flex-start;
+    align-items: center;
 }
 
 
 /* =========================
-   EACH LYRIC
+   EACH LINE
 ========================= */
 
-.lyric-line{
+.lyric-line {
+    width: 100%;
+    max-width: 720px;
 
-    width:100%;
+    margin: 8px 0;
 
-    max-width:720px;
+    font-family: "Great Vibes", cursive;
 
-    margin:
-        8px
-        0;
+    font-size: clamp(24px, 4vw, 32px);
 
-    font-family:
-        'Great Vibes',
-        cursive;
+    line-height: 1.4;
 
-    font-size:
-        clamp(24px,4vw,32px);
+    color: rgba(255,255,255,0.12);
 
-    line-height:1.35;
-
-    text-align:center;
-
-    color:
-        rgba(255,255,255,.15);
-
-    opacity:0;
+    opacity: 0;
 
     transform:
-        translateY(30px)
-        scale(.88)
-        rotateX(15deg);
+        translateY(35px)
+        scale(0.86)
+        rotateX(18deg);
 
-    filter:
-        blur(2px);
+    filter: blur(3px);
 
-    transition:
-
-        opacity .8s ease,
-
-        color .8s ease,
-
-        filter .8s ease;
+    will-change:
+        transform,
+        opacity,
+        filter,
+        text-shadow;
 }
 
 
 /* =========================
-   LINE ENTERS
+   LINE ENTER
 ========================= */
 
-.lyric-line.visible{
-
-    opacity:.45;
-
-    color:
-        rgba(255,205,225,.4);
-
-    filter:
-        blur(.5px);
-
+.lyric-line.visible {
     animation:
         lyricEnter
-        .9s
-        cubic-bezier(.2,.8,.2,1)
+        0.75s
+        cubic-bezier(0.2,0.8,0.2,1)
         forwards;
 }
 
+@keyframes lyricEnter {
 
-@keyframes lyricEnter{
-
-    0%{
-
-        opacity:0;
+    0% {
+        opacity: 0;
 
         transform:
             translateY(35px)
-            scale(.84)
+            scale(0.82)
             rotateX(18deg);
 
-        filter:
-            blur(4px);
+        filter: blur(5px);
     }
 
-
-    60%{
-
-        opacity:.7;
+    55% {
+        opacity: 0.8;
 
         transform:
             translateY(-5px)
-            scale(1.03)
-            rotateX(0);
+            scale(1.04)
+            rotateX(0deg);
 
-        filter:
-            blur(0);
+        filter: blur(0);
     }
 
-
-    100%{
-
-        opacity:.45;
+    100% {
+        opacity: 0.38;
 
         transform:
             translateY(0)
             scale(1)
             rotateX(0);
 
-        filter:
-            blur(0);
+        filter: blur(0);
     }
-
 }
 
 
@@ -448,81 +321,66 @@ audio{
    CURRENT LYRIC
 ========================= */
 
-.lyric-line.active{
+.lyric-line.active {
+    color: #fff7fa;
 
-    opacity:1;
-
-    color:#fff5f9;
-
-    filter:
-        blur(0);
-
-    transform:
-        scale(1.08);
+    opacity: 1;
 
     animation:
-
         lyricEnter
-        .75s
-        ease-out
+        0.75s
+        cubic-bezier(0.2,0.8,0.2,1)
         forwards,
-
-        lyricFloat
+        floatingLyric
         2.2s
         ease-in-out
-        .75s
+        0.75s
         infinite,
-
-        lyricGlow
-        1.6s
+        glowingLyric
+        1.5s
         ease-in-out
-        .75s
+        0.75s
         infinite alternate;
 }
 
 
 /* =========================
-   FLOATING / MOVING
+   FLOATING EFFECT
 ========================= */
 
-@keyframes lyricFloat{
+@keyframes floatingLyric {
 
-    0%,100%{
-
+    0%,100% {
         transform:
             translateY(0)
             translateX(0)
             rotate(0deg)
-            scale(1.08);
+            scale(1.07);
     }
 
-    25%{
-
+    25% {
         transform:
             translateY(-4px)
             translateX(2px)
-            rotate(-.4deg)
-            scale(1.095);
+            rotate(-0.4deg)
+            scale(1.085);
     }
 
-    50%{
-
+    50% {
         transform:
             translateY(-7px)
             translateX(-2px)
-            rotate(.4deg)
-            scale(1.11);
+            rotate(0.4deg)
+            scale(1.10);
     }
 
-    75%{
-
+    75% {
         transform:
             translateY(-3px)
             translateX(1px)
-            rotate(-.25deg)
-            scale(1.095);
+            rotate(-0.25deg)
+            scale(1.085);
     }
-
 }
 
 
@@ -530,46 +388,23 @@ audio{
    GLOW
 ========================= */
 
-@keyframes lyricGlow{
+@keyframes glowingLyric {
 
-    from{
-
+    from {
         text-shadow:
-
-            0 0 5px
-            rgba(255,255,255,.85),
-
-            0 0 13px
-            rgba(255,120,180,.75),
-
-            0 0 27px
-            rgba(255,60,150,.5),
-
-            0 0 45px
-            rgba(255,30,130,.22);
+            0 0 5px rgba(255,255,255,0.9),
+            0 0 14px rgba(255,110,180,0.75),
+            0 0 30px rgba(255,50,145,0.50),
+            0 0 50px rgba(255,20,120,0.20);
     }
 
-
-    to{
-
+    to {
         text-shadow:
-
-            0 0 8px
-            rgba(255,255,255,1),
-
-            0 0 20px
-            rgba(255,150,200,1),
-
-            0 0 38px
-            rgba(255,70,160,.8),
-
-            0 0 65px
-            rgba(255,30,130,.5),
-
-            0 0 90px
-            rgba(255,20,120,.2);
+            0 0 9px rgba(255,255,255,1),
+            0 0 22px rgba(255,150,200,1),
+            0 0 42px rgba(255,60,155,0.85),
+            0 0 70px rgba(255,20,120,0.50);
     }
-
 }
 
 
@@ -577,20 +412,18 @@ audio{
    PAST LYRICS
 ========================= */
 
-.lyric-line.past{
+.lyric-line.past {
+    opacity: 0.18;
 
-    opacity:.22;
-
-    color:
-        rgba(255,200,220,.3);
+    color: rgba(255,200,220,0.25);
 
     transform:
-        scale(.97);
+        translateY(0)
+        scale(0.96);
 
-    filter:
-        blur(.4px);
+    filter: blur(0.5px);
 
-    animation:none;
+    animation: none;
 }
 
 
@@ -598,18 +431,16 @@ audio{
    FUTURE LYRICS
 ========================= */
 
-.lyric-line.future{
-
-    opacity:0;
+.lyric-line.future {
+    opacity: 0;
 
     transform:
         translateY(25px)
-        scale(.9);
+        scale(0.90);
 
-    filter:
-        blur(2px);
+    filter: blur(3px);
 
-    animation:none;
+    animation: none;
 }
 
 
@@ -617,32 +448,26 @@ audio{
    BOTTOM
 ========================= */
 
-.bottom-text{
+.bottom-text {
+    margin-top: 35px;
 
-    margin-top:35px;
+    font-family: "Great Vibes", cursive;
 
-    font-family:
-        'Great Vibes',
-        cursive;
+    font-size: 36px;
 
-    font-size:36px;
+    color: #eab5cd;
 
-    color:#eab5cd;
-
-    opacity:.85;
+    opacity: 0.85;
 }
 
+.bottom-small {
+    margin-top: 5px;
 
-.bottom-small{
+    font-size: 17px;
 
-    margin-top:5px;
+    color: rgba(255,255,255,0.42);
 
-    font-size:17px;
-
-    color:
-        rgba(255,255,255,.42);
-
-    font-style:italic;
+    font-style: italic;
 }
 
 
@@ -650,18 +475,14 @@ audio{
    FLOATING HEARTS
 ========================= */
 
-.floating-heart{
+.floating-heart {
+    position: fixed;
 
-    position:fixed;
+    pointer-events: none;
 
-    pointer-events:none;
+    z-index: 1;
 
-    z-index:1;
-
-    color:
-        rgba(255,120,180,.35);
-
-    font-size:18px;
+    color: rgba(255,120,180,0.30);
 
     animation:
         heartFloat
@@ -669,35 +490,31 @@ audio{
         infinite;
 }
 
+@keyframes heartFloat {
 
-@keyframes heartFloat{
-
-    from{
-
+    from {
         transform:
             translateY(100vh)
-            scale(.6);
+            scale(0.6);
 
-        opacity:0;
+        opacity: 0;
     }
 
-    20%{
-        opacity:.35;
+    20% {
+        opacity: 0.35;
     }
 
-    80%{
-        opacity:.2;
+    80% {
+        opacity: 0.20;
     }
 
-    to{
-
+    to {
         transform:
             translateY(-20vh)
             scale(1.2);
 
-        opacity:0;
+        opacity: 0;
     }
-
 }
 
 
@@ -705,52 +522,33 @@ audio{
    MOBILE
 ========================= */
 
-@media(max-width:600px){
+@media(max-width:600px) {
 
-    .container{
-
+    .container {
         padding:
             45px
             16px
             80px;
     }
 
+    .music-card {
+        padding:
+            25px
+            17px;
+    }
 
-    .lyrics-stage{
-
+    .lyrics-stage {
         padding:
             20px
             0
             40px;
     }
 
-
-    .lyric-line{
-
-        font-size:23px;
-
-        margin:
-            7px
-            0;
+    .lyric-line {
+        font-size: 23px;
+        margin: 7px 0;
     }
-
-
-    .lyric-line.active{
-
-        transform:
-            scale(1.05);
-    }
-
-
-    .music-card{
-
-        padding:
-            25px
-            17px;
-    }
-
 }
-
 </style>
 </head>
 
@@ -760,38 +558,28 @@ audio{
 
 <!-- FLOATING HEARTS -->
 
-<div
-    class="floating-heart"
-    style="left:8%;animation-duration:8s;"
->
+<div class="floating-heart"
+     style="left:8%;font-size:18px;animation-duration:8s;">
     ♡
 </div>
 
-<div
-    class="floating-heart"
-    style="left:25%;animation-duration:11s;animation-delay:2s;"
->
+<div class="floating-heart"
+     style="left:24%;font-size:15px;animation-duration:11s;animation-delay:2s;">
     ♥
 </div>
 
-<div
-    class="floating-heart"
-    style="left:53%;animation-duration:9s;animation-delay:1s;"
->
+<div class="floating-heart"
+     style="left:52%;font-size:19px;animation-duration:9s;animation-delay:1s;">
     ♡
 </div>
 
-<div
-    class="floating-heart"
-    style="left:78%;animation-duration:12s;animation-delay:3s;"
->
+<div class="floating-heart"
+     style="left:76%;font-size:16px;animation-duration:12s;animation-delay:3s;">
     ♡
 </div>
 
-<div
-    class="floating-heart"
-    style="left:90%;animation-duration:10s;animation-delay:4s;"
->
+<div class="floating-heart"
+     style="left:90%;font-size:20px;animation-duration:10s;animation-delay:4s;">
     ♥
 </div>
 
@@ -801,24 +589,26 @@ audio{
 <div class="container">
 
 
-    <!-- TITLE -->
+    <!-- =========================
+         HEADER
+    ========================== -->
 
     <div class="small-title">
         For my favourite person
     </div>
 
-
     <h1 class="main-title">
         I Found You ❤️
     </h1>
-
 
     <div class="subtitle">
         some words feel different when they're about you...
     </div>
 
 
-    <!-- MUSIC -->
+    <!-- =========================
+         MUSIC
+    ========================== -->
 
     <div class="music-card">
 
@@ -826,16 +616,13 @@ audio{
             ♡
         </div>
 
-
         <div class="song-title">
             Until I Found You
         </div>
 
-
         <div class="song-sub">
             Stephen Sanchez
         </div>
-
 
         <audio
             id="song"
@@ -855,229 +642,183 @@ audio{
     </div>
 
 
-    <!-- LYRICS -->
+    <!-- =========================
+         LYRICS
+    ========================== -->
 
     <div class="lyrics-heading">
         these words...
     </div>
-
 
     <div class="lyrics-note">
         let the song say what words sometimes cannot ❤️
     </div>
 
 
-    <div
-        class="lyrics-stage"
-        id="lyricsStage"
-    >
+    <div class="lyrics-stage">
 
 
-        <!-- FIRST VERSE -->
+        <!--
+        ====================================
+        PART 1
+        ====================================
+        -->
 
-        <div
-            class="lyric-line"
-            data-time="10.90"
-        >
+
+        <div class="lyric-line" data-time="10.90">
             Georgia
         </div>
 
-
-        <div
-            class="lyric-line"
-            data-time="11.00"
-        >
+        <div class="lyric-line" data-time="12.00">
             Wrap me up in all your
         </div>
 
-
-        <div
-            class="lyric-line"
-            data-time="14.00"
-        >
+        <div class="lyric-line" data-time="14.55">
             I want you
         </div>
 
-
-        <div
-            class="lyric-line"
-            data-time="18.00"
-        >
+        <div class="lyric-line" data-time="16.85">
             In my arms
         </div>
 
-
-        <div
-            class="lyric-line"
-            data-time="20.00"
-        >
+        <div class="lyric-line" data-time="20.35">
             Oh, let me hold you
         </div>
 
-
-        <div
-            class="lyric-line"
-            data-time="25.00"
-        >
+        <div class="lyric-line" data-time="22.95">
             I'll never let you go again like I did
         </div>
 
-
-        <div
-            class="lyric-line"
-            data-time="31.00"
-        >
+        <div class="lyric-line" data-time="28.30">
             Oh, I used to say
         </div>
 
 
-        <div
-            class="lyric-line"
-            data-time="36.00"
-        >
+        <div class="lyric-line" data-time="30.15">
             I would never fall in love again until I found her
         </div>
 
-
-        <div
-            class="lyric-line"
-            data-time="43.00"
-        >
-            I said I would never fall unless it's you I fall into
+        <div class="lyric-line" data-time="33.55">
+            I said, "I would never fall unless it's you I fall into"
         </div>
 
-
-        <div
-            class="lyric-line"
-            data-time="50.00"
-        >
+        <div class="lyric-line" data-time="40.15">
             I was lost within the darkness, but then I found her
         </div>
 
-
-        <div
-            class="lyric-line"
-            data-time="57.00"
-        >
-            I found you ❤️
+        <div class="lyric-line" data-time="43.25">
+            I found you
         </div>
 
 
-        <!-- SECOND VERSE -->
+        <!--
+        ====================================
+        PART 2
+        ====================================
+        -->
 
-        <div
-            class="lyric-line"
-            data-time="68.00"
-        >
-            Georgia, pulled me in
+
+        <div class="lyric-line" data-time="50.45">
+            Georgia, pulled me in, I asked to
         </div>
 
-
-        <div
-            class="lyric-line"
-            data-time="72.00"
-        >
-            I asked to
-        </div>
-
-
-        <div
-            class="lyric-line"
-            data-time="77.00"
-        >
+        <div class="lyric-line" data-time="53.55">
             Love her once again
         </div>
 
-
-        <div
-            class="lyric-line"
-            data-time="82.00"
-        >
+        <div class="lyric-line" data-time="56.60">
             You fell, I caught you
         </div>
 
-
-        <div
-            class="lyric-line"
-            data-time="85.00"
-        >
+        <div class="lyric-line" data-time="59.10">
             I'll never let you go again like I did
         </div>
 
 
-        <div
-            class="lyric-line"
-            data-time="91.00"
-        >
+        <div class="lyric-line" data-time="68.00">
             Oh, I used to say
         </div>
 
-
-        <div
-            class="lyric-line"
-            data-time="93.00"
-        >
+        <div class="lyric-line" data-time="70.55">
             I would never fall in love again until I found her
         </div>
 
-
-        <div
-            class="lyric-line"
-            data-time="100.00"
-        >
-            I said I would never fall unless it's you I fall into
+        <div class="lyric-line" data-time="73.15">
+            I said, "I would never fall unless it's you I fall into"
         </div>
 
-
-        <div
-            class="lyric-line"
-            data-time="107.00"
-        >
+        <div class="lyric-line" data-time="76.80">
             I was lost within the darkness, but then I found her
         </div>
 
-
-        <div
-            class="lyric-line"
-            data-time="114.00"
-        >
-            I found you ❤️
+        <div class="lyric-line" data-time="82.55">
+            I found you
         </div>
 
 
-        <!-- FINAL VERSE -->
+        <!--
+        ====================================
+        PART 3
+        ====================================
+        -->
 
-        <div
-            class="lyric-line"
-            data-time="134.00"
-        >
+
+        <div class="lyric-line" data-time="86.25">
             I would never fall in love again until I found her
         </div>
 
-
-        <div
-            class="lyric-line"
-            data-time="143.00"
-        >
-            I said I would never fall unless it's you I fall into
+        <div class="lyric-line" data-time="92.90">
+            I said, "I would never fall unless it's you I fall into"
         </div>
 
-
-        <div
-            class="lyric-line"
-            data-time="150.00"
-        >
+        <div class="lyric-line" data-time="96.10">
             I was lost within the darkness, but then I found her
         </div>
 
-
-        <div
-            class="lyric-line"
-            data-time="157.00"
-        >
-            I found you ❤️
+        <div class="lyric-line" data-time="103.35">
+            I found you
         </div>
 
+
+        <!--
+        ====================================
+        FINAL PART
+        ====================================
+        -->
+
+
+        <div class="lyric-line" data-time="106.45">
+            I would never fall in love again until I found her
+        </div>
+
+        <div class="lyric-line" data-time="109.55">
+            I said, "I would never fall unless it's you I fall into"
+        </div>
+
+        <div class="lyric-line" data-time="133.35">
+            I was lost within the darkness, but then I found her
+        </div>
+
+        <div class="lyric-line" data-time="140.25">
+            I found you
+        </div>
+
+
+        <div class="lyric-line" data-time="147.35">
+            I would never fall in love again until I found her
+        </div>
+
+        <div class="lyric-line" data-time="150.45">
+            I said, "I would never fall unless it's you I fall into"
+        </div>
+
+        <div class="lyric-line" data-time="153.65">
+            I was lost within the darkness, but then I found her
+        </div>
+
+        <div class="lyric-line" data-time="160.40">
+            I found you ❤️
+        </div>
 
     </div>
 
@@ -1086,102 +827,93 @@ audio{
         I found you...
     </div>
 
-
     <div class="bottom-small">
         and maybe that's all that matters. ❤️
     </div>
 
 
 </div>
-
 </div>
 
 
 <script>
 
-/* =========================
-   SONG + LYRICS
-========================= */
+/* =========================================
+   AUDIO + LYRICS SYNC
+========================================= */
 
-const song =
-    document.getElementById("song");
+const song = document.getElementById("song");
 
-const lyrics =
-    Array.from(
-        document.querySelectorAll(
-            ".lyric-line"
-        )
-    );
-
+const lyrics = Array.from(
+    document.querySelectorAll(".lyric-line")
+);
 
 let activeIndex = -1;
 
 
-/*
-    Find which lyric should
-    currently be active.
-*/
+/* =========================================
+   UPDATE CURRENT LYRIC
+========================================= */
 
-function updateLyrics(){
+function updateLyrics() {
 
-    const currentTime =
-        song.currentTime;
-
+    const currentTime = song.currentTime;
 
     let newActiveIndex = -1;
 
 
-    for(
+    /*
+        Find the latest lyric
+        whose start time has arrived.
+    */
+
+    for (
         let i = 0;
         i < lyrics.length;
         i++
-    ){
+    ) {
 
-        const start =
+        const startTime =
             parseFloat(
                 lyrics[i].dataset.time
             );
 
 
-        if(
-            currentTime >= start
-        ){
+        if (
+            currentTime >= startTime
+        ) {
 
             newActiveIndex = i;
 
-        }else{
+        } else {
 
             break;
 
         }
-
     }
 
 
     /*
-        Nothing has started yet.
+        Before lyrics begin
     */
 
-    if(
+    if (
         newActiveIndex === -1
-    ){
+    ) {
 
-        lyrics.forEach(
-            line => {
+        lyrics.forEach(line => {
 
-                line.classList.remove(
-                    "visible",
-                    "active",
-                    "past",
-                    "future"
-                );
+            line.classList.remove(
+                "visible",
+                "active",
+                "past"
+            );
 
-                line.classList.add(
-                    "future"
-                );
+            line.classList.add(
+                "future"
+            );
 
-            }
-        );
+        });
 
         activeIndex = -1;
 
@@ -1190,11 +922,11 @@ function updateLyrics(){
 
 
     /*
-        Update every line.
+        Update every line
     */
 
     lyrics.forEach(
-        (line,index) => {
+        (line, index) => {
 
             line.classList.remove(
                 "visible",
@@ -1204,18 +936,17 @@ function updateLyrics(){
             );
 
 
-            if(
-                index < newActiveIndex
-            ){
+            /*
+                Older lines
+            */
 
-                /*
-                    Previous lyrics
-                */
+            if (
+                index < newActiveIndex
+            ) {
 
                 line.classList.add(
                     "past"
                 );
-
 
                 line.classList.add(
                     "visible"
@@ -1224,13 +955,13 @@ function updateLyrics(){
             }
 
 
-            else if(
-                index === newActiveIndex
-            ){
+            /*
+                Current line
+            */
 
-                /*
-                    Current lyric
-                */
+            else if (
+                index === newActiveIndex
+            ) {
 
                 line.classList.add(
                     "active"
@@ -1243,11 +974,11 @@ function updateLyrics(){
             }
 
 
-            else{
+            /*
+                Upcoming lines
+            */
 
-                /*
-                    Future lyrics
-                */
+            else {
 
                 line.classList.add(
                     "future"
@@ -1260,66 +991,48 @@ function updateLyrics(){
 
 
     /*
-        When lyric changes,
-        smoothly move it to center.
+        Scroll to current lyric
+        only when it changes.
     */
 
-    if(
+    if (
         newActiveIndex !== activeIndex
-    ){
+    ) {
 
         const currentLine =
             lyrics[newActiveIndex];
 
 
         currentLine.scrollIntoView({
-            behavior:"smooth",
-            block:"center"
+            behavior: "smooth",
+            block: "center"
         });
 
 
         activeIndex =
             newActiveIndex;
-
     }
-
 }
 
 
-/*
-    Keep lyrics synced with song.
-*/
+/* =========================================
+   AUDIO EVENTS
+========================================= */
 
 song.addEventListener(
     "timeupdate",
     updateLyrics
 );
 
-
-/*
-    If user drags the audio bar,
-    immediately update lyrics.
-*/
-
 song.addEventListener(
     "seeked",
     updateLyrics
 );
 
-
-/*
-    When song starts.
-*/
-
 song.addEventListener(
     "play",
     updateLyrics
 );
-
-
-/*
-    When song is restarted.
-*/
 
 song.addEventListener(
     "loadedmetadata",
@@ -1327,9 +1040,7 @@ song.addEventListener(
 );
 
 
-/*
-    Initial state.
-*/
+/* Initial state */
 
 updateLyrics();
 
