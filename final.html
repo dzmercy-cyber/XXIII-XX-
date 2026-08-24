@@ -4,776 +4,293 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<title>For You, Always ♡</title>
+<title>For You ❤️</title>
 
 <style>
 @import url('https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;500;600&family=Great+Vibes&display=swap');
 
 *{
+    box-sizing:border-box;
     margin:0;
     padding:0;
-    box-sizing:border-box;
 }
 
 body{
     min-height:100vh;
-    overflow-x:hidden;
     background:
-        radial-gradient(circle at 50% 25%,#4b1b30,#1b0a13 52%,#060608);
+        radial-gradient(circle at 50% 20%, #40213c 0%, #1b1020 42%, #09070d 100%);
     color:#fff;
     font-family:'Cormorant Garamond',serif;
+    overflow-x:hidden;
 }
 
-.glow{
-    position:fixed;
-    width:600px;
-    height:600px;
-    left:50%;
-    top:35%;
-    transform:translate(-50%,-50%);
-    background:#d43d78;
-    filter:blur(200px);
-    opacity:.12;
-    animation:glowPulse 7s ease-in-out infinite alternate;
-    pointer-events:none;
-}
-
-@keyframes glowPulse{
-    from{transform:translate(-50%,-50%) scale(.85);}
-    to{transform:translate(-50%,-50%) scale(1.2);}
-}
+/* floating hearts */
 
 .heart{
     position:fixed;
-    color:#ff719c;
+    bottom:-30px;
+    font-size:18px;
     opacity:0;
+    animation:floatUp linear infinite;
     pointer-events:none;
-    animation:floatHeart 12s linear infinite;
 }
 
-.h1{left:8%;animation-delay:1s;}
-.h2{left:20%;animation-delay:4s;}
-.h3{left:80%;animation-delay:2s;}
-.h4{left:92%;animation-delay:6s;}
-.h5{left:48%;animation-delay:8s;}
+.heart:nth-child(1){left:8%;animation-duration:8s;animation-delay:1s}
+.heart:nth-child(2){left:23%;animation-duration:10s;animation-delay:3s}
+.heart:nth-child(3){left:47%;animation-duration:7s;animation-delay:0s}
+.heart:nth-child(4){left:68%;animation-duration:11s;animation-delay:2s}
+.heart:nth-child(5){left:87%;animation-duration:9s;animation-delay:4s}
 
-@keyframes floatHeart{
+@keyframes floatUp{
     0%{
-        transform:translateY(110vh) scale(.4);
+        transform:translateY(0) scale(.6) rotate(0deg);
         opacity:0;
     }
-    20%{opacity:.2;}
-    80%{opacity:.18;}
+    15%{opacity:.7}
+    80%{opacity:.4}
     100%{
-        transform:translateY(-15vh) scale(1);
+        transform:translateY(-110vh) scale(1.3) rotate(25deg);
         opacity:0;
     }
 }
 
 .container{
-    position:relative;
-    z-index:5;
     width:min(900px,92%);
     margin:auto;
-    padding:65px 0 45px;
+    padding:70px 0 90px;
     text-align:center;
-    animation:pageIn 1.5s ease;
 }
 
-@keyframes pageIn{
-    from{
-        opacity:0;
-        transform:translateY(25px);
-    }
-    to{
-        opacity:1;
-        transform:translateY(0);
-    }
-}
-
-.chapter{
-    font-size:11px;
+.small{
     letter-spacing:5px;
     text-transform:uppercase;
-    color:#c9a4b2;
-    margin-bottom:14px;
+    font-size:12px;
+    opacity:.65;
+    margin-bottom:20px;
 }
 
 h1{
     font-family:'Great Vibes',cursive;
-    font-size:clamp(65px,9vw,100px);
+    font-size:clamp(55px,10vw,100px);
     font-weight:400;
-    color:#ffe8ef;
-    line-height:1;
+    margin-bottom:10px;
+    text-shadow:0 0 30px rgba(255,170,210,.3);
 }
 
 .subtitle{
-    margin-top:12px;
-    color:#b99aa6;
-    font-size:18px;
-    font-style:italic;
+    font-size:22px;
+    opacity:.8;
+    margin-bottom:45px;
 }
 
-/* PHOTO */
+/* photo */
 
-.photo-frame{
-    position:relative;
+.photo-box{
     width:min(430px,90vw);
-    margin:40px auto 0;
-    padding:10px;
-    background:#f8e9ed;
-    box-shadow:0 30px 80px rgba(0,0,0,.55);
-    transform:rotate(-2deg);
-    animation:photoFloat 5s ease-in-out infinite;
+    height:500px;
+    margin:0 auto 45px;
+    border-radius:25px;
+    padding:8px;
+    background:linear-gradient(135deg,#ffd6e7,#9d527e,#ffd6e7);
+    box-shadow:
+        0 0 30px rgba(255,120,190,.2),
+        0 20px 60px rgba(0,0,0,.5);
+    animation:photoGlow 4s ease-in-out infinite;
 }
 
-@keyframes photoFloat{
-    0%,100%{
-        transform:rotate(-2deg) translateY(0);
-    }
-    50%{
-        transform:rotate(2deg) translateY(-8px);
-    }
+@keyframes photoGlow{
+    0%,100%{box-shadow:0 0 25px rgba(255,120,190,.18),0 20px 60px rgba(0,0,0,.5)}
+    50%{box-shadow:0 0 45px rgba(255,120,190,.4),0 20px 60px rgba(0,0,0,.5)}
 }
 
-.photo-frame img{
-    display:block;
+.photo-inner{
     width:100%;
-    height:430px;
-    object-fit:cover;
-    background:#32131f;
+    height:100%;
+    border-radius:20px;
+    background:
+        linear-gradient(rgba(30,10,25,.35),rgba(30,10,25,.55)),
+        url("our-photo.jpg") center/cover;
+    display:flex;
+    align-items:flex-end;
+    justify-content:center;
+    padding-bottom:28px;
 }
 
 .photo-caption{
-    padding:9px 0 2px;
-    color:#6f4b57;
-    font-size:14px;
-    letter-spacing:2px;
+    font-size:20px;
+    background:rgba(0,0,0,.35);
+    backdrop-filter:blur(8px);
+    padding:8px 20px;
+    border-radius:30px;
 }
 
-/* LETTER */
+/* song player */
 
-.letter{
-    width:min(700px,100%);
-    margin:45px auto 0;
-    padding:38px 40px;
-    position:relative;
-    border-radius:25px;
-    border:1px solid rgba(255,113,156,.20);
-
-    background:
-        linear-gradient(
-            145deg,
-            rgba(100,30,55,.25),
-            rgba(10,5,9,.72)
-        );
-
-    box-shadow:0 25px 70px rgba(0,0,0,.30);
-    text-align:left;
+.song-card{
+    width:min(650px,94%);
+    margin:0 auto 55px;
+    padding:35px 28px;
+    border:1px solid rgba(255,190,220,.25);
+    border-radius:28px;
+    background:rgba(255,255,255,.045);
+    backdrop-filter:blur(15px);
+    box-shadow:0 20px 60px rgba(0,0,0,.25);
 }
 
-.letter::before{
-    content:"♡";
-    position:absolute;
-    top:15px;
-    right:20px;
-    color:#ff719c;
-    font-size:22px;
-    opacity:.5;
+.song-icon{
+    font-size:42px;
+    margin-bottom:12px;
+    animation:pulse 2s infinite;
 }
 
-.letter-title{
-    text-align:center;
+@keyframes pulse{
+    0%,100%{transform:scale(1)}
+    50%{transform:scale(1.12)}
+}
+
+.song-title{
+    font-size:28px;
+    margin-bottom:5px;
+}
+
+.song-sub{
+    opacity:.6;
+    font-size:16px;
+    margin-bottom:25px;
+}
+
+audio{
+    width:100%;
+    height:48px;
+    border-radius:30px;
+}
+
+/* lyrics */
+
+.lyrics{
+    width:min(650px,94%);
+    margin:auto;
+    padding:40px 25px;
+    border-radius:30px;
+    background:rgba(255,255,255,.035);
+    border:1px solid rgba(255,190,220,.15);
+}
+
+.lyrics-title{
     font-family:'Great Vibes',cursive;
-    font-size:44px;
-    color:#ffe4eb;
-    margin-bottom:20px;
+    font-size:48px;
+    margin-bottom:30px;
 }
 
-.letter p{
-    color:#d8c2c9;
+.lyrics p{
+    font-size:22px;
+    line-height:1.8;
+    opacity:.9;
+    margin-bottom:28px;
+}
+
+.highlight{
+    color:#ffc4df;
+    text-shadow:0 0 15px rgba(255,150,200,.3);
+}
+
+/* ending */
+
+.ending{
+    margin-top:70px;
     font-size:19px;
     line-height:1.8;
-    margin-bottom:17px;
+    opacity:.75;
 }
 
 .signature{
-    margin-top:25px;
-    text-align:right;
     font-family:'Great Vibes',cursive;
-    font-size:34px;
-    color:#ff91ad;
+    font-size:46px;
+    color:#ffc7e0;
+    margin-top:20px;
 }
-
-/* MUSIC BOX */
-
-.music-box{
-    width:min(600px,100%);
-    margin:35px auto 0;
-    padding:23px 25px;
-    border-radius:24px;
-    border:1px solid rgba(255,113,156,.35);
-
-    background:
-        linear-gradient(
-            145deg,
-            rgba(90,25,50,.45),
-            rgba(20,7,13,.80)
-        );
-
-    box-shadow:
-        0 20px 60px rgba(0,0,0,.30),
-        0 0 35px rgba(255,60,120,.06);
-}
-
-.music-top{
-    display:flex;
-    align-items:center;
-    gap:16px;
-}
-
-.music-icon{
-    width:55px;
-    height:55px;
-    border-radius:50%;
-
-    display:flex;
-    align-items:center;
-    justify-content:center;
-
-    background:rgba(170,40,85,.3);
-    border:1px solid #c04b76;
-    color:#ff719c;
-    font-size:24px;
-
-    flex-shrink:0;
-    transition:.4s;
-}
-
-.music-icon.playing{
-    animation:musicPulse 1.5s ease-in-out infinite;
-}
-
-@keyframes musicPulse{
-    0%,100%{
-        transform:scale(1);
-        box-shadow:0 0 0 rgba(255,80,140,0);
-    }
-
-    50%{
-        transform:scale(1.1);
-        box-shadow:0 0 28px rgba(255,80,140,.35);
-    }
-}
-
-.song-info{
-    text-align:left;
-    flex:1;
-}
-
-.song-name{
-    color:#ffe5ec;
-    font-size:21px;
-}
-
-.song-artist{
-    color:#a48691;
-    font-size:14px;
-    margin-top:2px;
-}
-
-/* BRIGHT PLAY BUTTON */
-
-.play-button{
-    width:54px;
-    height:54px;
-
-    border-radius:50%;
-
-    border:1px solid rgba(255,190,210,.9);
-
-    background:
-        linear-gradient(
-            145deg,
-            #ed6794,
-            #bd3568
-        );
-
-    color:#ffffff;
-
-    font-size:19px;
-
-    cursor:pointer;
-
-    flex-shrink:0;
-
-    display:flex;
-    align-items:center;
-    justify-content:center;
-
-    box-shadow:
-        0 0 12px rgba(255,75,135,.45),
-        0 0 28px rgba(255,75,135,.25),
-        0 8px 25px rgba(0,0,0,.45);
-
-    text-shadow:
-        0 1px 4px rgba(0,0,0,.35);
-
-    transition:
-        transform .3s ease,
-        box-shadow .3s ease,
-        background .3s ease;
-}
-
-.play-button:hover{
-    transform:scale(1.12);
-
-    background:
-        linear-gradient(
-            145deg,
-            #ff82aa,
-            #d84475
-        );
-
-    box-shadow:
-        0 0 18px rgba(255,100,155,.65),
-        0 0 40px rgba(255,80,140,.4),
-        0 10px 30px rgba(0,0,0,.45);
-}
-
-.play-button:active{
-    transform:scale(.94);
-}
-
-.music-progress{
-    width:100%;
-    height:3px;
-    margin-top:19px;
-    background:#3a1a28;
-    overflow:hidden;
-    border-radius:10px;
-}
-
-.music-progress-bar{
-    width:0%;
-    height:100%;
-    background:#ff719c;
-    transition:width .1s linear;
-}
-
-.song-error{
-    display:none;
-    margin-top:12px;
-    color:#c28b9e;
-    font-size:13px;
-}
-
-/* NOTES */
-
-.notes{
-    position:fixed;
-    left:50%;
-    top:50%;
-    pointer-events:none;
-    z-index:20;
-}
-
-.note{
-    position:absolute;
-    color:#ff719c;
-    font-size:23px;
-    animation:noteFly 2s ease-out forwards;
-}
-
-@keyframes noteFly{
-    0%{
-        transform:translate(-50%,-50%) scale(.5);
-        opacity:0;
-    }
-
-    20%{
-        opacity:1;
-    }
-
-    100%{
-        transform:
-            translate(
-                calc(-50% + var(--x)),
-                calc(-50% + var(--y))
-            )
-            rotate(var(--r));
-
-        opacity:0;
-    }
-}
-
-.bottom{
-    margin-top:45px;
-    padding-bottom:20px;
-    color:#806571;
-    font-size:14px;
-    letter-spacing:1px;
-}
-
-.bottom span{
-    color:#ff719c;
-}
-
-/* MOBILE */
 
 @media(max-width:600px){
-
     .container{
-        padding:50px 0 35px;
+        padding-top:45px;
     }
 
-    .photo-frame img{
-        height:350px;
+    .photo-box{
+        height:430px;
     }
 
-    .letter{
-        padding:30px 23px;
-    }
-
-    .letter p{
-        font-size:17px;
-        line-height:1.7;
-    }
-
-    .music-box{
-        padding:18px;
-    }
-
-    .song-name{
-        font-size:18px;
-    }
-
-    .song-artist{
-        font-size:13px;
-    }
-
-    .play-button{
-        width:52px;
-        height:52px;
+    .lyrics p{
+        font-size:19px;
     }
 }
-
 </style>
 </head>
 
-
 <body>
 
-<div class="glow"></div>
-
-<div class="heart h1">♡</div>
-<div class="heart h2">♥</div>
-<div class="heart h3">♡</div>
-<div class="heart h4">♥</div>
-<div class="heart h5">♡</div>
-
+<!-- floating hearts -->
+<div class="heart">♡</div>
+<div class="heart">♥</div>
+<div class="heart">♡</div>
+<div class="heart">♥</div>
+<div class="heart">♡</div>
 
 <div class="container">
 
-    <div class="chapter">
-        and finally · ♡
-    </div>
+    <div class="small">a little something for you</div>
 
-    <h1>
-        For You
-    </h1>
+    <h1>For My Favourite Person</h1>
 
     <div class="subtitle">
-        if you reached here... this is for you.
+        Some feelings sound better with a song... ❤️
     </div>
-
 
     <!-- PHOTO -->
-
-    <div class="photo-frame">
-
-        <img
-            src="./our-photo.jpg"
-            alt="Our favourite memory"
-        >
-
-        <div class="photo-caption">
-            us · one of my favourite memories
+    <div class="photo-box">
+        <div class="photo-inner">
+            <div class="photo-caption">
+                us, somewhere between forever ♡
+            </div>
         </div>
-
     </div>
-
-
-    <!-- LETTER -->
-
-    <div class="letter">
-
-        <div class="letter-title">
-            A Little Something
-        </div>
-
-        <p>
-            There are some things that are difficult
-            to say in a normal conversation...
-        </p>
-
-        <p>
-            So I made this little place for you.
-            Every page, every question, every little
-            thing here was made just so you could
-            spend a few minutes inside something
-            that came from my heart.
-        </p>
-
-        <p>
-            And if you are reading this right now,
-            I just want you to know that having you
-            in my life has given so many ordinary
-            moments a meaning I didn't know they
-            could have.
-        </p>
-
-        <div class="signature">
-            always yours ♡
-        </div>
-
-    </div>
-
 
     <!-- SONG -->
+    <div class="song-card">
 
-    <div class="music-box">
+        <div class="song-icon">🎧</div>
 
-        <div class="music-top">
-
-            <div
-                class="music-icon"
-                id="musicIcon">
-
-                ♫
-
-            </div>
-
-
-            <div class="song-info">
-
-                <div class="song-name">
-                    Until I Found You
-                </div>
-
-                <div class="song-artist">
-                    Stephen Sanchez · Our Song ♡
-                </div>
-
-            </div>
-
-
-            <button
-                class="play-button"
-                id="playButton"
-                type="button"
-                onclick="toggleMusic()">
-
-                ▶
-
-            </button>
-
+        <div class="song-title">
+            I Found Her
         </div>
 
-
-        <div class="music-progress">
-
-            <div
-                class="music-progress-bar"
-                id="musicProgress">
-            </div>
-
+        <div class="song-sub">
+            listen to this one slowly...
         </div>
 
-
-        <div
-            class="song-error"
-            id="songError">
-
-            Make sure <b>our-song.mp3</b> is uploaded
-            in the same folder as <b>final.html</b>.
-
-        </div>
+        <!-- song.mp3 repository me upload karna -->
+        <audio controls preload="metadata">
+            <source src="song.mp3" type="audio/mpeg">
+            Your browser does not support audio.
+        </audio>
 
     </div>
 
-
-    <div class="bottom">
-
-        made with a little bit of code
-        <span>♡</span>
-        and a lot of feelings.
-
-    </div>
-
-</div>
-
-
-<!-- SONG -->
-
-<audio
-    id="song"
-    src="./our-song.mp3"
-    preload="metadata">
-</audio>
-
-
-<div
-    class="notes"
-    id="notes">
-</div>
-
-
-<script>
-
-const song =
-    document.getElementById("song");
-
-const playButton =
-    document.getElementById("playButton");
-
-const musicIcon =
-    document.getElementById("musicIcon");
-
-const musicProgress =
-    document.getElementById("musicProgress");
-
-const songError =
-    document.getElementById("songError");
-
-
-/* SONG ERROR */
-
-song.addEventListener("error",function(){
-
-    songError.style.display="block";
-
-});
-
-
-/* PLAY / PAUSE */
-
-function toggleMusic(){
-
-    if(song.paused){
-
-        song.play()
-        .then(function(){
-
-            playButton.innerHTML="❚❚";
-
-            musicIcon.classList.add("playing");
-
-            createNotes();
-
-        })
-        .catch(function(){
-
-            songError.style.display="block";
-
-        });
-
-    }else{
-
-        song.pause();
-
-        playButton.innerHTML="▶";
-
-        musicIcon.classList.remove("playing");
-
-    }
-
-}
-
-
-/* PROGRESS */
-
-song.addEventListener(
-    "timeupdate",
-    function(){
-
-        if(song.duration){
-
-            const percent =
-                (song.currentTime /
-                song.duration) * 100;
-
-            musicProgress.style.width =
-                percent + "%";
-
-        }
-
-    }
-);
-
-
-/* END */
-
-song.addEventListener(
-    "ended",
-    function(){
-
-        playButton.innerHTML="▶";
-
-        musicIcon.classList.remove("playing");
-
-        musicProgress.style.width="0%";
-
-    }
-);
-
-
-/* MUSIC NOTES */
-
-function createNotes(){
-
-    for(let i=0;i<12;i++){
-
-        const note =
-            document.createElement("div");
-
-        note.className="note";
-
-        note.innerHTML =
-            Math.random() > .5
-            ? "♪"
-            : "♫";
-
-        note.style.setProperty(
-            "--x",
-            ((Math.random()-.5)*450)+"px"
-        );
-
-        note.style.setProperty(
-            "--y",
-            ((Math.random()-.5)*350)+"px"
-        );
-
-        note.style.setProperty(
-            "--r",
-            ((Math.random()-.5)*60)+"deg"
-        );
-
-        document
-            .getElementById("notes")
-            .appendChild(note);
-
-        setTimeout(function(){
-
-            note.remove();
-
-        },2000);
-
-    }
-
-}
-
-</script>
-
-</body>
-</html>
+    <!-- LYRICS -->
+    <div class="lyrics">
+
+        <div class="lyrics-title">
+            these words...
+        </div>
+
+        <p>
+            Georgia, wrap me up in all your<br>
+            I want you in my arms<br>
+            Oh, let me hold you<br>
+            I'll never let you go again like I did<br>
+            Oh, I used to say
+        </p>
+
+        <p class="highlight">
+            I would never fall in love again until I found her<br>
+            I said, "I would never fall unless it's you I fall into"<br>
+            I was lost within the darkness, but then I found
