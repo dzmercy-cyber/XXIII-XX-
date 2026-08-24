@@ -1,0 +1,255 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>XXIII:XX ♡</title>
+
+<style>
+@import url('https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;500;600&family=Great+Vibes&display=swap');
+
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+}
+
+body{
+    min-height:100vh;
+    overflow:hidden;
+    background:
+        radial-gradient(circle at 50% 45%, #351322 0%, #160b13 35%, #08070c 75%);
+    color:white;
+    font-family:'Cormorant Garamond',serif;
+}
+
+/* soft glow */
+
+body::before{
+    content:"";
+    position:fixed;
+    width:450px;
+    height:450px;
+    left:50%;
+    top:45%;
+    transform:translate(-50%,-50%);
+    background:#a52b5b;
+    filter:blur(160px);
+    opacity:.18;
+}
+
+/* stars */
+
+.star{
+    position:absolute;
+    width:3px;
+    height:3px;
+    background:#fff;
+    border-radius:50%;
+    opacity:.5;
+    animation:twinkle 3s infinite alternate;
+}
+
+.star:nth-child(1){left:12%;top:18%;}
+.star:nth-child(2){left:27%;top:72%;animation-delay:1s;}
+.star:nth-child(3){left:74%;top:20%;animation-delay:2s;}
+.star:nth-child(4){left:88%;top:64%;animation-delay:.5s;}
+.star:nth-child(5){left:60%;top:82%;animation-delay:1.5s;}
+.star:nth-child(6){left:42%;top:12%;animation-delay:2.5s;}
+
+@keyframes twinkle{
+    from{opacity:.15;transform:scale(.7);}
+    to{opacity:.9;transform:scale(1.5);}
+}
+
+/* hearts */
+
+.heart{
+    position:absolute;
+    color:#ff729c;
+    opacity:.25;
+    font-size:18px;
+    animation:float 9s linear infinite;
+}
+
+.h1{left:12%;animation-delay:0s;}
+.h2{left:24%;animation-delay:2s;}
+.h3{left:76%;animation-delay:4s;}
+.h4{left:88%;animation-delay:1s;}
+
+@keyframes float{
+    0%{
+        transform:translateY(110vh) rotate(0deg);
+        opacity:0;
+    }
+
+    20%{
+        opacity:.3;
+    }
+
+    80%{
+        opacity:.3;
+    }
+
+    100%{
+        transform:translateY(-15vh) rotate(360deg);
+        opacity:0;
+    }
+}
+
+/* main */
+
+.container{
+    height:100vh;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    text-align:center;
+    position:relative;
+    z-index:5;
+}
+
+.content{
+    animation:appear 2s ease forwards;
+}
+
+@keyframes appear{
+    from{
+        opacity:0;
+        transform:translateY(25px);
+    }
+
+    to{
+        opacity:1;
+        transform:translateY(0);
+    }
+}
+
+.small{
+    font-size:12px;
+    letter-spacing:5px;
+    text-transform:uppercase;
+    color:#cda8b6;
+    margin-bottom:28px;
+}
+
+.title{
+    font-family:'Great Vibes',cursive;
+    font-size:clamp(65px,10vw,125px);
+    line-height:.9;
+    color:#ffe8ef;
+    text-shadow:
+        0 0 25px rgba(255,100,150,.25),
+        0 0 70px rgba(255,70,130,.12);
+}
+
+.heart-main{
+    font-size:34px;
+    color:#ff6f9b;
+    margin:30px 0;
+    animation:beat 2s infinite;
+}
+
+@keyframes beat{
+    0%,100%{transform:scale(1);}
+    50%{transform:scale(1.18);}
+}
+
+.enter{
+    margin-top:15px;
+    padding:15px 38px;
+    border-radius:50px;
+    border:1px solid #b94c70;
+    background:rgba(130,30,65,.25);
+    color:#ffeaf1;
+    font-family:'Cormorant Garamond',serif;
+    font-size:18px;
+    letter-spacing:1px;
+    cursor:pointer;
+    transition:.4s;
+    box-shadow:0 0 25px rgba(255,70,130,.08);
+}
+
+.enter:hover{
+    background:#a72e59;
+    transform:translateY(-4px);
+    box-shadow:0 10px 40px rgba(255,70,130,.25);
+}
+
+.bottom{
+    position:absolute;
+    bottom:30px;
+    left:50%;
+    transform:translateX(-50%);
+    color:#806571;
+    font-size:12px;
+    letter-spacing:3px;
+    text-transform:uppercase;
+}
+</style>
+</head>
+
+<body>
+
+<!-- stars -->
+<div class="star"></div>
+<div class="star"></div>
+<div class="star"></div>
+<div class="star"></div>
+<div class="star"></div>
+<div class="star"></div>
+
+<!-- floating hearts -->
+<div class="heart h1">♡</div>
+<div class="heart h2">♥</div>
+<div class="heart h3">♡</div>
+<div class="heart h4">♥</div>
+
+<div class="container">
+
+    <div class="content">
+
+        <div class="small">
+            A little surprise for you
+        </div>
+
+        <div class="title">
+            For You
+        </div>
+
+        <div class="heart-main">
+            ♥
+        </div>
+
+        <button class="enter" onclick="enterWorld()">
+            Enter our little world&nbsp; →
+        </button>
+
+    </div>
+
+</div>
+
+<div class="bottom">
+    made with a little bit of love ♡
+</div>
+
+<script>
+
+function enterWorld(){
+
+    document.body.style.transition="1s";
+    document.body.style.opacity="0";
+
+    setTimeout(function(){
+
+        window.location.href="photos.html";
+
+    },1000);
+
+}
+
+</script>
+
+</body>
+</html>
