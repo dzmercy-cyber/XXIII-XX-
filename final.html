@@ -1,0 +1,779 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>For You, Always ♡</title>
+
+<style>
+@import url('https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;500;600&family=Great+Vibes&display=swap');
+
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+}
+
+body{
+    min-height:100vh;
+    overflow-x:hidden;
+    background:
+        radial-gradient(circle at 50% 25%,#4b1b30,#1b0a13 52%,#060608);
+    color:#fff;
+    font-family:'Cormorant Garamond',serif;
+}
+
+.glow{
+    position:fixed;
+    width:600px;
+    height:600px;
+    left:50%;
+    top:35%;
+    transform:translate(-50%,-50%);
+    background:#d43d78;
+    filter:blur(200px);
+    opacity:.12;
+    animation:glowPulse 7s ease-in-out infinite alternate;
+    pointer-events:none;
+}
+
+@keyframes glowPulse{
+    from{transform:translate(-50%,-50%) scale(.85);}
+    to{transform:translate(-50%,-50%) scale(1.2);}
+}
+
+.heart{
+    position:fixed;
+    color:#ff719c;
+    opacity:0;
+    pointer-events:none;
+    animation:floatHeart 12s linear infinite;
+}
+
+.h1{left:8%;animation-delay:1s;}
+.h2{left:20%;animation-delay:4s;}
+.h3{left:80%;animation-delay:2s;}
+.h4{left:92%;animation-delay:6s;}
+.h5{left:48%;animation-delay:8s;}
+
+@keyframes floatHeart{
+    0%{
+        transform:translateY(110vh) scale(.4);
+        opacity:0;
+    }
+    20%{opacity:.2;}
+    80%{opacity:.18;}
+    100%{
+        transform:translateY(-15vh) scale(1);
+        opacity:0;
+    }
+}
+
+.container{
+    position:relative;
+    z-index:5;
+    width:min(900px,92%);
+    margin:auto;
+    padding:65px 0 45px;
+    text-align:center;
+    animation:pageIn 1.5s ease;
+}
+
+@keyframes pageIn{
+    from{
+        opacity:0;
+        transform:translateY(25px);
+    }
+    to{
+        opacity:1;
+        transform:translateY(0);
+    }
+}
+
+.chapter{
+    font-size:11px;
+    letter-spacing:5px;
+    text-transform:uppercase;
+    color:#c9a4b2;
+    margin-bottom:14px;
+}
+
+h1{
+    font-family:'Great Vibes',cursive;
+    font-size:clamp(65px,9vw,100px);
+    font-weight:400;
+    color:#ffe8ef;
+    line-height:1;
+}
+
+.subtitle{
+    margin-top:12px;
+    color:#b99aa6;
+    font-size:18px;
+    font-style:italic;
+}
+
+/* PHOTO */
+
+.photo-frame{
+    position:relative;
+    width:min(430px,90vw);
+    margin:40px auto 0;
+    padding:10px;
+    background:#f8e9ed;
+    box-shadow:0 30px 80px rgba(0,0,0,.55);
+    transform:rotate(-2deg);
+    animation:photoFloat 5s ease-in-out infinite;
+}
+
+@keyframes photoFloat{
+    0%,100%{
+        transform:rotate(-2deg) translateY(0);
+    }
+    50%{
+        transform:rotate(2deg) translateY(-8px);
+    }
+}
+
+.photo-frame img{
+    display:block;
+    width:100%;
+    height:430px;
+    object-fit:cover;
+    background:#32131f;
+}
+
+.photo-caption{
+    padding:9px 0 2px;
+    color:#6f4b57;
+    font-size:14px;
+    letter-spacing:2px;
+}
+
+/* LETTER */
+
+.letter{
+    width:min(700px,100%);
+    margin:45px auto 0;
+    padding:38px 40px;
+    position:relative;
+    border-radius:25px;
+    border:1px solid rgba(255,113,156,.20);
+
+    background:
+        linear-gradient(
+            145deg,
+            rgba(100,30,55,.25),
+            rgba(10,5,9,.72)
+        );
+
+    box-shadow:0 25px 70px rgba(0,0,0,.30);
+    text-align:left;
+}
+
+.letter::before{
+    content:"♡";
+    position:absolute;
+    top:15px;
+    right:20px;
+    color:#ff719c;
+    font-size:22px;
+    opacity:.5;
+}
+
+.letter-title{
+    text-align:center;
+    font-family:'Great Vibes',cursive;
+    font-size:44px;
+    color:#ffe4eb;
+    margin-bottom:20px;
+}
+
+.letter p{
+    color:#d8c2c9;
+    font-size:19px;
+    line-height:1.8;
+    margin-bottom:17px;
+}
+
+.signature{
+    margin-top:25px;
+    text-align:right;
+    font-family:'Great Vibes',cursive;
+    font-size:34px;
+    color:#ff91ad;
+}
+
+/* MUSIC BOX */
+
+.music-box{
+    width:min(600px,100%);
+    margin:35px auto 0;
+    padding:23px 25px;
+    border-radius:24px;
+    border:1px solid rgba(255,113,156,.35);
+
+    background:
+        linear-gradient(
+            145deg,
+            rgba(90,25,50,.45),
+            rgba(20,7,13,.80)
+        );
+
+    box-shadow:
+        0 20px 60px rgba(0,0,0,.30),
+        0 0 35px rgba(255,60,120,.06);
+}
+
+.music-top{
+    display:flex;
+    align-items:center;
+    gap:16px;
+}
+
+.music-icon{
+    width:55px;
+    height:55px;
+    border-radius:50%;
+
+    display:flex;
+    align-items:center;
+    justify-content:center;
+
+    background:rgba(170,40,85,.3);
+    border:1px solid #c04b76;
+    color:#ff719c;
+    font-size:24px;
+
+    flex-shrink:0;
+    transition:.4s;
+}
+
+.music-icon.playing{
+    animation:musicPulse 1.5s ease-in-out infinite;
+}
+
+@keyframes musicPulse{
+    0%,100%{
+        transform:scale(1);
+        box-shadow:0 0 0 rgba(255,80,140,0);
+    }
+
+    50%{
+        transform:scale(1.1);
+        box-shadow:0 0 28px rgba(255,80,140,.35);
+    }
+}
+
+.song-info{
+    text-align:left;
+    flex:1;
+}
+
+.song-name{
+    color:#ffe5ec;
+    font-size:21px;
+}
+
+.song-artist{
+    color:#a48691;
+    font-size:14px;
+    margin-top:2px;
+}
+
+/* BRIGHT PLAY BUTTON */
+
+.play-button{
+    width:54px;
+    height:54px;
+
+    border-radius:50%;
+
+    border:1px solid rgba(255,190,210,.9);
+
+    background:
+        linear-gradient(
+            145deg,
+            #ed6794,
+            #bd3568
+        );
+
+    color:#ffffff;
+
+    font-size:19px;
+
+    cursor:pointer;
+
+    flex-shrink:0;
+
+    display:flex;
+    align-items:center;
+    justify-content:center;
+
+    box-shadow:
+        0 0 12px rgba(255,75,135,.45),
+        0 0 28px rgba(255,75,135,.25),
+        0 8px 25px rgba(0,0,0,.45);
+
+    text-shadow:
+        0 1px 4px rgba(0,0,0,.35);
+
+    transition:
+        transform .3s ease,
+        box-shadow .3s ease,
+        background .3s ease;
+}
+
+.play-button:hover{
+    transform:scale(1.12);
+
+    background:
+        linear-gradient(
+            145deg,
+            #ff82aa,
+            #d84475
+        );
+
+    box-shadow:
+        0 0 18px rgba(255,100,155,.65),
+        0 0 40px rgba(255,80,140,.4),
+        0 10px 30px rgba(0,0,0,.45);
+}
+
+.play-button:active{
+    transform:scale(.94);
+}
+
+.music-progress{
+    width:100%;
+    height:3px;
+    margin-top:19px;
+    background:#3a1a28;
+    overflow:hidden;
+    border-radius:10px;
+}
+
+.music-progress-bar{
+    width:0%;
+    height:100%;
+    background:#ff719c;
+    transition:width .1s linear;
+}
+
+.song-error{
+    display:none;
+    margin-top:12px;
+    color:#c28b9e;
+    font-size:13px;
+}
+
+/* NOTES */
+
+.notes{
+    position:fixed;
+    left:50%;
+    top:50%;
+    pointer-events:none;
+    z-index:20;
+}
+
+.note{
+    position:absolute;
+    color:#ff719c;
+    font-size:23px;
+    animation:noteFly 2s ease-out forwards;
+}
+
+@keyframes noteFly{
+    0%{
+        transform:translate(-50%,-50%) scale(.5);
+        opacity:0;
+    }
+
+    20%{
+        opacity:1;
+    }
+
+    100%{
+        transform:
+            translate(
+                calc(-50% + var(--x)),
+                calc(-50% + var(--y))
+            )
+            rotate(var(--r));
+
+        opacity:0;
+    }
+}
+
+.bottom{
+    margin-top:45px;
+    padding-bottom:20px;
+    color:#806571;
+    font-size:14px;
+    letter-spacing:1px;
+}
+
+.bottom span{
+    color:#ff719c;
+}
+
+/* MOBILE */
+
+@media(max-width:600px){
+
+    .container{
+        padding:50px 0 35px;
+    }
+
+    .photo-frame img{
+        height:350px;
+    }
+
+    .letter{
+        padding:30px 23px;
+    }
+
+    .letter p{
+        font-size:17px;
+        line-height:1.7;
+    }
+
+    .music-box{
+        padding:18px;
+    }
+
+    .song-name{
+        font-size:18px;
+    }
+
+    .song-artist{
+        font-size:13px;
+    }
+
+    .play-button{
+        width:52px;
+        height:52px;
+    }
+}
+
+</style>
+</head>
+
+
+<body>
+
+<div class="glow"></div>
+
+<div class="heart h1">♡</div>
+<div class="heart h2">♥</div>
+<div class="heart h3">♡</div>
+<div class="heart h4">♥</div>
+<div class="heart h5">♡</div>
+
+
+<div class="container">
+
+    <div class="chapter">
+        and finally · ♡
+    </div>
+
+    <h1>
+        For You
+    </h1>
+
+    <div class="subtitle">
+        if you reached here... this is for you.
+    </div>
+
+
+    <!-- PHOTO -->
+
+    <div class="photo-frame">
+
+        <img
+            src="./our-photo.jpg"
+            alt="Our favourite memory"
+        >
+
+        <div class="photo-caption">
+            us · one of my favourite memories
+        </div>
+
+    </div>
+
+
+    <!-- LETTER -->
+
+    <div class="letter">
+
+        <div class="letter-title">
+            A Little Something
+        </div>
+
+        <p>
+            There are some things that are difficult
+            to say in a normal conversation...
+        </p>
+
+        <p>
+            So I made this little place for you.
+            Every page, every question, every little
+            thing here was made just so you could
+            spend a few minutes inside something
+            that came from my heart.
+        </p>
+
+        <p>
+            And if you are reading this right now,
+            I just want you to know that having you
+            in my life has given so many ordinary
+            moments a meaning I didn't know they
+            could have.
+        </p>
+
+        <div class="signature">
+            always yours ♡
+        </div>
+
+    </div>
+
+
+    <!-- SONG -->
+
+    <div class="music-box">
+
+        <div class="music-top">
+
+            <div
+                class="music-icon"
+                id="musicIcon">
+
+                ♫
+
+            </div>
+
+
+            <div class="song-info">
+
+                <div class="song-name">
+                    Until I Found You
+                </div>
+
+                <div class="song-artist">
+                    Stephen Sanchez · Our Song ♡
+                </div>
+
+            </div>
+
+
+            <button
+                class="play-button"
+                id="playButton"
+                type="button"
+                onclick="toggleMusic()">
+
+                ▶
+
+            </button>
+
+        </div>
+
+
+        <div class="music-progress">
+
+            <div
+                class="music-progress-bar"
+                id="musicProgress">
+            </div>
+
+        </div>
+
+
+        <div
+            class="song-error"
+            id="songError">
+
+            Make sure <b>our-song.mp3</b> is uploaded
+            in the same folder as <b>final.html</b>.
+
+        </div>
+
+    </div>
+
+
+    <div class="bottom">
+
+        made with a little bit of code
+        <span>♡</span>
+        and a lot of feelings.
+
+    </div>
+
+</div>
+
+
+<!-- SONG -->
+
+<audio
+    id="song"
+    src="./our-song.mp3"
+    preload="metadata">
+</audio>
+
+
+<div
+    class="notes"
+    id="notes">
+</div>
+
+
+<script>
+
+const song =
+    document.getElementById("song");
+
+const playButton =
+    document.getElementById("playButton");
+
+const musicIcon =
+    document.getElementById("musicIcon");
+
+const musicProgress =
+    document.getElementById("musicProgress");
+
+const songError =
+    document.getElementById("songError");
+
+
+/* SONG ERROR */
+
+song.addEventListener("error",function(){
+
+    songError.style.display="block";
+
+});
+
+
+/* PLAY / PAUSE */
+
+function toggleMusic(){
+
+    if(song.paused){
+
+        song.play()
+        .then(function(){
+
+            playButton.innerHTML="❚❚";
+
+            musicIcon.classList.add("playing");
+
+            createNotes();
+
+        })
+        .catch(function(){
+
+            songError.style.display="block";
+
+        });
+
+    }else{
+
+        song.pause();
+
+        playButton.innerHTML="▶";
+
+        musicIcon.classList.remove("playing");
+
+    }
+
+}
+
+
+/* PROGRESS */
+
+song.addEventListener(
+    "timeupdate",
+    function(){
+
+        if(song.duration){
+
+            const percent =
+                (song.currentTime /
+                song.duration) * 100;
+
+            musicProgress.style.width =
+                percent + "%";
+
+        }
+
+    }
+);
+
+
+/* END */
+
+song.addEventListener(
+    "ended",
+    function(){
+
+        playButton.innerHTML="▶";
+
+        musicIcon.classList.remove("playing");
+
+        musicProgress.style.width="0%";
+
+    }
+);
+
+
+/* MUSIC NOTES */
+
+function createNotes(){
+
+    for(let i=0;i<12;i++){
+
+        const note =
+            document.createElement("div");
+
+        note.className="note";
+
+        note.innerHTML =
+            Math.random() > .5
+            ? "♪"
+            : "♫";
+
+        note.style.setProperty(
+            "--x",
+            ((Math.random()-.5)*450)+"px"
+        );
+
+        note.style.setProperty(
+            "--y",
+            ((Math.random()-.5)*350)+"px"
+        );
+
+        note.style.setProperty(
+            "--r",
+            ((Math.random()-.5)*60)+"deg"
+        );
+
+        document
+            .getElementById("notes")
+            .appendChild(note);
+
+        setTimeout(function(){
+
+            note.remove();
+
+        },2000);
+
+    }
+
+}
+
+</script>
+
+</body>
+</html>
