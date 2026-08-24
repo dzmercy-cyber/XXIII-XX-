@@ -39,9 +39,7 @@ body{
 
     color:white;
 
-    font-family:
-        "Cormorant Garamond",
-        serif;
+    font-family:"Cormorant Garamond",serif;
 }
 
 
@@ -59,13 +57,9 @@ body{
 
 .container{
     width:min(780px,94%);
-
     min-height:100vh;
 
-    padding:
-        55px
-        25px
-        100px;
+    padding:55px 25px 100px;
 
     text-align:center;
 }
@@ -78,8 +72,7 @@ body{
 .small-title{
     font-family:"Great Vibes",cursive;
 
-    font-size:
-        clamp(28px,5vw,38px);
+    font-size:clamp(28px,5vw,38px);
 
     color:#eab4cd;
 
@@ -92,8 +85,7 @@ body{
 .main-title{
     font-family:"Great Vibes",cursive;
 
-    font-size:
-        clamp(48px,9vw,72px);
+    font-size:clamp(48px,9vw,72px);
 
     font-weight:400;
 
@@ -111,8 +103,7 @@ body{
 .subtitle{
     font-size:20px;
 
-    color:
-        rgba(255,255,255,.55);
+    color:rgba(255,255,255,.55);
 
     font-style:italic;
 
@@ -133,6 +124,7 @@ body{
         opacity:1;
         transform:translateY(0);
     }
+
 }
 
 
@@ -144,9 +136,7 @@ body{
 
     width:100%;
 
-    padding:
-        30px
-        24px;
+    padding:30px 24px;
 
     border-radius:28px;
 
@@ -160,7 +150,6 @@ body{
     backdrop-filter:blur(15px);
 
     box-shadow:
-
         0 20px 70px
         rgba(0,0,0,.45),
 
@@ -175,6 +164,7 @@ body{
 
     from{
         opacity:0;
+
         transform:
             translateY(30px)
             scale(.97);
@@ -182,10 +172,12 @@ body{
 
     to{
         opacity:1;
+
         transform:
             translateY(0)
             scale(1);
     }
+
 }
 
 .song-heart{
@@ -207,6 +199,7 @@ body{
     50%{
         transform:scale(1.18);
     }
+
 }
 
 .song-title{
@@ -279,7 +272,7 @@ audio{
 
 
 /* =========================
-   LYRICS
+   LYRICS STAGE
 ========================= */
 
 .lyrics-stage{
@@ -299,6 +292,11 @@ audio{
 
     align-items:center;
 }
+
+
+/* =========================
+   EACH LYRIC
+========================= */
 
 .lyric-line{
 
@@ -336,17 +334,8 @@ audio{
 
 
 /* =========================
-   ENTER
+   ENTER ANIMATION
 ========================= */
-
-.lyric-line.enter{
-
-    animation:
-        lyricEnter
-        .65s
-        cubic-bezier(.2,.8,.2,1)
-        forwards;
-}
 
 @keyframes lyricEnter{
 
@@ -364,7 +353,7 @@ audio{
 
     60%{
 
-        opacity:.85;
+        opacity:.9;
 
         transform:
             translateY(-4px)
@@ -376,7 +365,7 @@ audio{
 
     100%{
 
-        opacity:.38;
+        opacity:1;
 
         transform:
             translateY(0)
@@ -384,11 +373,12 @@ audio{
 
         filter:blur(0);
     }
+
 }
 
 
 /* =========================
-   ACTIVE
+   ACTIVE LYRIC
 ========================= */
 
 .lyric-line.active{
@@ -398,25 +388,29 @@ audio{
     color:#fff7fa;
 
     animation:
+
         lyricEnter
         .65s
         cubic-bezier(.2,.8,.2,1)
         forwards,
+
         floatLyric
         2.4s
         ease-in-out
         .65s
         infinite,
+
         glowLyric
         1.4s
         ease-in-out
         .65s
-        infinite alternate;
+        infinite
+        alternate;
 }
 
 
 /* =========================
-   FLOAT
+   FLOATING LYRIC
 ========================= */
 
 @keyframes floatLyric{
@@ -456,6 +450,7 @@ audio{
             rotate(-.2deg)
             scale(1.085);
     }
+
 }
 
 
@@ -498,11 +493,12 @@ audio{
             0 0 70px
             rgba(255,20,120,.5);
     }
+
 }
 
 
 /* =========================
-   PAST
+   PAST LYRICS
 ========================= */
 
 .lyric-line.past{
@@ -522,7 +518,7 @@ audio{
 
 
 /* =========================
-   FUTURE
+   FUTURE LYRICS
 ========================= */
 
 .lyric-line.future{
@@ -619,6 +615,7 @@ audio{
 
         opacity:0;
     }
+
 }
 
 
@@ -657,6 +654,7 @@ audio{
 
         margin:7px 0;
     }
+
 }
 
 </style>
@@ -666,7 +664,9 @@ audio{
 <body>
 
 
-<!-- FLOATING HEARTS -->
+<!-- =========================
+     FLOATING HEARTS
+========================= -->
 
 <div class="floating-heart"
      style="left:8%;font-size:18px;animation-duration:8s;">
@@ -772,7 +772,8 @@ audio{
 
 
 <!-- =========================
-     01 - 14
+     LYRICS 01 - 14
+     Georgia stays 10.90
 ========================= -->
 
 <div class="lyric-line"
@@ -782,186 +783,186 @@ audio{
 </div>
 
 <div class="lyric-line"
-     data-start="12.00"
-     data-end="14.55">
+     data-start="13.60"
+     data-end="16.15">
     Wrap me up in all your
 </div>
 
 <div class="lyric-line"
-     data-start="14.55"
-     data-end="16.85">
+     data-start="16.15"
+     data-end="18.45">
     I want you
 </div>
 
 <div class="lyric-line"
-     data-start="16.85"
-     data-end="20.35">
+     data-start="18.45"
+     data-end="21.95">
     In my arms
 </div>
 
 <div class="lyric-line"
-     data-start="20.35"
-     data-end="22.95">
+     data-start="21.95"
+     data-end="24.55">
     Oh, let me hold you
 </div>
 
 <div class="lyric-line"
-     data-start="22.95"
-     data-end="28.30">
+     data-start="24.55"
+     data-end="29.90">
     I'll never let you go again like I did
 </div>
 
 <div class="lyric-line"
-     data-start="28.30"
-     data-end="30.15">
+     data-start="29.90"
+     data-end="31.75">
     Oh, I used to say
 </div>
 
 <div class="lyric-line"
-     data-start="30.15"
-     data-end="33.55">
+     data-start="31.75"
+     data-end="35.15">
     I would never fall in love again until I found her
 </div>
 
 <div class="lyric-line"
-     data-start="33.55"
-     data-end="40.15">
+     data-start="35.15"
+     data-end="41.75">
     I said, "I would never fall unless it's you I fall into"
 </div>
 
 <div class="lyric-line"
-     data-start="40.15"
-     data-end="43.25">
+     data-start="41.75"
+     data-end="44.85">
     I was lost within the darkness, but then I found her
 </div>
 
 <div class="lyric-line"
-     data-start="43.25"
-     data-end="50.45">
+     data-start="44.85"
+     data-end="52.05">
     I found you
 </div>
 
 <div class="lyric-line"
-     data-start="50.45"
-     data-end="53.55">
+     data-start="52.05"
+     data-end="55.15">
     Georgia, pulled me in, I asked to
 </div>
 
 <div class="lyric-line"
-     data-start="53.55"
-     data-end="56.60">
+     data-start="55.15"
+     data-end="58.20">
     Love her once again
 </div>
 
 <div class="lyric-line"
-     data-start="56.60"
-     data-end="59.10">
+     data-start="58.20"
+     data-end="60.70">
     You fell, I caught you
 </div>
 
 
 <!-- =========================
-     15 - 25
+     LYRICS 15 - 25
 ========================= -->
 
 <div class="lyric-line"
-     data-start="68.00"
-     data-end="70.55">
+     data-start="69.60"
+     data-end="72.15">
     I'll never let you go again like I did
 </div>
 
 <div class="lyric-line"
-     data-start="70.55"
-     data-end="73.15">
+     data-start="72.15"
+     data-end="74.75">
     Oh, I used to say
 </div>
 
 <div class="lyric-line"
-     data-start="73.15"
-     data-end="76.80">
+     data-start="74.75"
+     data-end="78.40">
     I would never fall in love again until I found her
 </div>
 
 <div class="lyric-line"
-     data-start="76.80"
-     data-end="82.55">
+     data-start="78.40"
+     data-end="84.15">
     I said, "I would never fall unless it's you I fall into"
 </div>
 
 <div class="lyric-line"
-     data-start="82.55"
-     data-end="86.25">
+     data-start="84.15"
+     data-end="87.85">
     I was lost within the darkness, but then I found her
 </div>
 
 <div class="lyric-line"
-     data-start="86.25"
-     data-end="92.90">
+     data-start="87.85"
+     data-end="94.50">
     I found you
 </div>
 
 <div class="lyric-line"
-     data-start="92.90"
-     data-end="96.10">
+     data-start="94.50"
+     data-end="97.70">
     I would never fall in love again until I found her
 </div>
 
 <div class="lyric-line"
-     data-start="96.10"
-     data-end="103.35">
+     data-start="97.70"
+     data-end="104.95">
     I said, "I would never fall unless it's you I fall into"
 </div>
 
 <div class="lyric-line"
-     data-start="103.35"
-     data-end="106.45">
+     data-start="104.95"
+     data-end="108.05">
     I was lost within the darkness, but then I found her
 </div>
 
 <div class="lyric-line"
-     data-start="106.45"
-     data-end="109.55">
+     data-start="108.05"
+     data-end="111.15">
     I found you
 </div>
 
 <div class="lyric-line"
-     data-start="109.55"
-     data-end="112.15">
+     data-start="111.15"
+     data-end="113.75">
     I would never fall in love again until I found her
 </div>
 
 
 <!-- =========================
-     26 - 30
+     LYRICS 26 - 30
 ========================= -->
 
 <div class="lyric-line"
-     data-start="133.35"
-     data-end="140.25">
+     data-start="134.95"
+     data-end="141.85">
     I said, "I would never fall unless it's you I fall into"
 </div>
 
 <div class="lyric-line"
-     data-start="140.25"
-     data-end="147.35">
+     data-start="141.85"
+     data-end="148.95">
     I was lost within the darkness, but then I found her
 </div>
 
 <div class="lyric-line"
-     data-start="147.35"
-     data-end="150.45">
+     data-start="148.95"
+     data-end="152.05">
     I found you
 </div>
 
 <div class="lyric-line"
-     data-start="150.45"
-     data-end="153.65">
+     data-start="152.05"
+     data-end="155.25">
     I would never fall in love again until I found her
 </div>
 
 <div class="lyric-line"
-     data-start="153.65"
-     data-end="160.40">
+     data-start="155.25"
+     data-end="162.00">
     I said, "I would never fall unless it's you I fall into"
 </div>
 
@@ -992,6 +993,10 @@ const song =
     document.getElementById("song");
 
 
+/* =========================================
+   ALL LYRICS
+========================================= */
+
 const lyrics =
     Array.from(
         document.querySelectorAll(".lyric-line")
@@ -1010,14 +1015,12 @@ function updateLyrics(){
     const time =
         song.currentTime;
 
-
     let current = -1;
 
 
     /*
-        Find the lyric whose
-        time range contains
-        the current song time.
+       Find the lyric which belongs
+       to the current song time.
     */
 
     for(
@@ -1046,12 +1049,14 @@ function updateLyrics(){
 
             break;
         }
+
     }
 
 
     /*
-        If between lyric sections,
-        show previous lyric softly.
+       Between lyrics:
+       previous lines remain soft,
+       future lines stay hidden.
     */
 
     if(current === -1){
@@ -1076,8 +1081,8 @@ function updateLyrics(){
             ){
 
                 previous = i;
-
             }
+
         }
 
 
@@ -1086,7 +1091,6 @@ function updateLyrics(){
 
                 line.classList.remove(
                     "active",
-                    "enter",
                     "past",
                     "future"
                 );
@@ -1107,6 +1111,7 @@ function updateLyrics(){
                     );
 
                 }
+
             }
         );
 
@@ -1116,7 +1121,7 @@ function updateLyrics(){
 
 
     /*
-        Update classes.
+       Update lyric states.
     */
 
     lyrics.forEach(
@@ -1124,7 +1129,6 @@ function updateLyrics(){
 
             line.classList.remove(
                 "active",
-                "enter",
                 "past",
                 "future"
             );
@@ -1140,7 +1144,6 @@ function updateLyrics(){
 
             }
 
-
             else if(
                 index === current
             ){
@@ -1149,12 +1152,7 @@ function updateLyrics(){
                     "active"
                 );
 
-                line.classList.add(
-                    "enter"
-                );
-
             }
-
 
             else{
 
@@ -1169,7 +1167,8 @@ function updateLyrics(){
 
 
     /*
-        Scroll when lyric changes.
+       Smoothly move current lyric
+       into the center.
     */
 
     if(
@@ -1192,6 +1191,7 @@ function updateLyrics(){
         activeIndex =
             current;
     }
+
 }
 
 
