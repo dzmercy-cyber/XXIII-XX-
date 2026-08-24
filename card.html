@@ -1,0 +1,600 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>A Little Something ♡</title>
+
+<style>
+@import url('https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;500;600&family=Great+Vibes&display=swap');
+
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+}
+
+body{
+    min-height:100vh;
+    overflow:hidden;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+
+    background:
+        radial-gradient(circle at 50% 40%,#42182a,#180b13 45%,#07070a 100%);
+
+    color:white;
+    font-family:'Cormorant Garamond',serif;
+}
+
+/* BACKGROUND */
+
+.glow{
+    position:fixed;
+    width:500px;
+    height:500px;
+    border-radius:50%;
+    background:#d43d78;
+    filter:blur(180px);
+    opacity:.12;
+    animation:pulse 6s ease-in-out infinite alternate;
+}
+
+@keyframes pulse{
+    to{
+        transform:scale(1.25);
+        opacity:.2;
+    }
+}
+
+/* FLOATING HEARTS */
+
+.heart{
+    position:fixed;
+    color:#ff719c;
+    opacity:0;
+    font-size:20px;
+    animation:float 10s linear infinite;
+    pointer-events:none;
+}
+
+.h1{left:9%;animation-delay:1s;}
+.h2{left:20%;animation-delay:4s;}
+.h3{left:80%;animation-delay:2s;}
+.h4{left:91%;animation-delay:6s;}
+.h5{left:48%;animation-delay:8s;}
+
+@keyframes float{
+    0%{
+        transform:translateY(110vh) scale(.5) rotate(0);
+        opacity:0;
+    }
+
+    20%{
+        opacity:.25;
+    }
+
+    80%{
+        opacity:.2;
+    }
+
+    100%{
+        transform:translateY(-15vh) scale(1) rotate(180deg);
+        opacity:0;
+    }
+}
+
+/* MAIN */
+
+.container{
+    width:min(650px,90%);
+    text-align:center;
+    position:relative;
+    z-index:3;
+
+    animation:appear 1.4s ease;
+}
+
+@keyframes appear{
+    from{
+        opacity:0;
+        transform:translateY(30px);
+    }
+
+    to{
+        opacity:1;
+        transform:translateY(0);
+    }
+}
+
+.chapter{
+    font-size:11px;
+    letter-spacing:5px;
+    text-transform:uppercase;
+    color:#c9a4b2;
+    margin-bottom:20px;
+}
+
+h1{
+    font-family:'Great Vibes',cursive;
+    font-size:clamp(48px,7vw,75px);
+    font-weight:400;
+    color:#ffe8ef;
+}
+
+.subtitle{
+    margin-top:10px;
+    color:#b99aa6;
+    font-size:17px;
+    font-style:italic;
+}
+
+/* CARD AREA */
+
+.card-area{
+    margin:35px auto 25px;
+    width:270px;
+    height:190px;
+    position:relative;
+    perspective:1000px;
+}
+
+/* ENVELOPE */
+
+.envelope{
+    position:absolute;
+    width:100%;
+    height:100%;
+    border-radius:8px;
+
+    background:linear-gradient(
+        145deg,
+        #7b294b,
+        #421526
+    );
+
+    box-shadow:
+        0 25px 60px rgba(0,0,0,.55),
+        0 0 35px rgba(255,70,130,.12);
+
+    overflow:hidden;
+}
+
+/* envelope flap */
+
+.flap{
+    position:absolute;
+    left:0;
+    top:0;
+
+    width:0;
+    height:0;
+
+    border-left:135px solid transparent;
+    border-right:135px solid transparent;
+    border-top:95px solid #9c3b61;
+
+    transform-origin:top center;
+
+    transition:1s ease;
+
+    z-index:4;
+}
+
+/* envelope lower folds */
+
+.left-fold{
+    position:absolute;
+    left:0;
+    bottom:0;
+
+    width:0;
+    height:0;
+
+    border-top:95px solid transparent;
+    border-bottom:0 solid transparent;
+    border-left:135px solid #60203a;
+}
+
+.right-fold{
+    position:absolute;
+    right:0;
+    bottom:0;
+
+    width:0;
+    height:0;
+
+    border-top:95px solid transparent;
+    border-bottom:0 solid transparent;
+    border-right:135px solid #60203a;
+}
+
+/* lock */
+
+.lock{
+    position:absolute;
+    left:50%;
+    top:50%;
+
+    transform:translate(-50%,-50%);
+
+    width:54px;
+    height:54px;
+
+    border-radius:50%;
+
+    background:#f5d9df;
+    color:#742443;
+
+    display:flex;
+    align-items:center;
+    justify-content:center;
+
+    font-size:24px;
+
+    box-shadow:
+        0 5px 20px rgba(0,0,0,.3);
+
+    z-index:6;
+
+    animation:lockPulse 2s ease-in-out infinite;
+}
+
+@keyframes lockPulse{
+    0%,100%{
+        transform:translate(-50%,-50%) scale(1);
+    }
+
+    50%{
+        transform:translate(-50%,-50%) scale(1.08);
+    }
+}
+
+/* INPUT */
+
+.label{
+    color:#b99aa6;
+    font-size:15px;
+    margin-bottom:10px;
+}
+
+.input-box{
+    display:flex;
+    justify-content:center;
+    gap:8px;
+}
+
+input{
+    width:120px;
+    padding:11px 15px;
+
+    text-align:center;
+
+    border-radius:30px;
+    border:1px solid #74314d;
+
+    background:rgba(10,5,9,.75);
+
+    color:#ffeaf1;
+
+    outline:none;
+
+    font-family:'Cormorant Garamond',serif;
+    font-size:18px;
+
+    transition:.3s;
+}
+
+input:focus{
+    border-color:#d65a83;
+    box-shadow:0 0 20px rgba(255,70,130,.12);
+}
+
+.unlock{
+    padding:11px 23px;
+
+    border-radius:30px;
+
+    border:1px solid #a34063;
+
+    background:rgba(130,30,65,.2);
+
+    color:#ffeaf1;
+
+    font-family:'Cormorant Garamond',serif;
+
+    font-size:16px;
+
+    cursor:pointer;
+
+    transition:.3s;
+}
+
+.unlock:hover{
+    background:#a72e59;
+    transform:translateY(-2px);
+}
+
+/* ERROR */
+
+.error{
+    min-height:22px;
+    margin-top:10px;
+
+    color:#ff729c;
+    font-size:14px;
+}
+
+/* SECRET CARD */
+
+.secret{
+    position:absolute;
+
+    width:230px;
+    height:150px;
+
+    left:50%;
+    top:50%;
+
+    transform:
+        translate(-50%,-50%)
+        scale(.5);
+
+    background:#fff4f5;
+
+    color:#542333;
+
+    border-radius:5px;
+
+    padding:22px;
+
+    opacity:0;
+
+    z-index:2;
+
+    transition:1.2s ease;
+
+    box-shadow:
+        0 20px 50px rgba(0,0,0,.4);
+}
+
+.secret-title{
+    font-family:'Great Vibes',cursive;
+    font-size:32px;
+}
+
+.secret-text{
+    margin-top:10px;
+    font-size:14px;
+}
+
+/* UNLOCKED */
+
+.unlocked .flap{
+    transform:rotateX(180deg);
+}
+
+.unlocked .lock{
+    opacity:0;
+    transform:translate(-50%,-50%) scale(.2);
+}
+
+.unlocked .secret{
+    opacity:1;
+
+    transform:
+        translate(-50%,-50%)
+        scale(1.15)
+        translateY(-20px);
+
+    z-index:7;
+}
+
+/* CONTINUE */
+
+.continue{
+    margin-top:20px;
+
+    padding:12px 30px;
+
+    border-radius:40px;
+
+    border:1px solid #a34063;
+
+    background:rgba(130,30,65,.2);
+
+    color:#ffeaf1;
+
+    font-family:'Cormorant Garamond',serif;
+
+    font-size:17px;
+
+    cursor:pointer;
+
+    opacity:0;
+
+    pointer-events:none;
+
+    transition:.5s;
+}
+
+.continue.show{
+    opacity:1;
+    pointer-events:auto;
+}
+
+.continue:hover{
+    background:#a72e59;
+    transform:translateY(-3px);
+}
+
+/* MOBILE */
+
+@media(max-width:600px){
+
+    .card-area{
+        width:250px;
+        height:175px;
+    }
+
+    .flap{
+        border-left-width:125px;
+        border-right-width:125px;
+        border-top-width:88px;
+    }
+
+    .left-fold{
+        border-left-width:125px;
+        border-top-width:88px;
+    }
+
+    .right-fold{
+        border-right-width:125px;
+        border-top-width:88px;
+    }
+
+}
+</style>
+</head>
+
+<body>
+
+<div class="glow"></div>
+
+<div class="heart h1">♡</div>
+<div class="heart h2">♥</div>
+<div class="heart h3">♡</div>
+<div class="heart h4">♥</div>
+<div class="heart h5">♡</div>
+
+
+<div class="container">
+
+    <div class="chapter">
+        something special · 02
+    </div>
+
+    <h1>
+        A Little Surprise
+    </h1>
+
+    <div class="subtitle">
+        but there's a tiny lock on it...
+    </div>
+
+
+    <div class="card-area" id="cardArea">
+
+        <div class="envelope">
+
+            <div class="left-fold"></div>
+            <div class="right-fold"></div>
+
+            <div class="flap"></div>
+
+            <div class="secret">
+
+                <div class="secret-title">
+                    For You ♡
+                </div>
+
+                <div class="secret-text">
+                    Something beautiful is waiting inside...
+                </div>
+
+            </div>
+
+            <div class="lock">
+                🔒
+            </div>
+
+        </div>
+
+    </div>
+
+
+    <div class="label">
+        Enter the little secret number
+    </div>
+
+
+    <div class="input-box">
+
+        <input
+            type="password"
+            id="code"
+            maxlength="2"
+            placeholder="••"
+        >
+
+        <button class="unlock" onclick="unlockCard()">
+            Unlock ♡
+        </button>
+
+    </div>
+
+
+    <div class="error" id="error"></div>
+
+
+    <button
+        class="continue"
+        id="continueBtn"
+        onclick="nextPage()"
+    >
+        There's something else → 
+    </button>
+
+</div>
+
+
+<script>
+
+function unlockCard(){
+
+    const input=document.getElementById("code");
+    const error=document.getElementById("error");
+    const card=document.getElementById("cardArea");
+    const continueBtn=document.getElementById("continueBtn");
+
+    if(input.value==="23"){
+
+        error.innerText="";
+
+        card.classList.add("unlocked");
+
+        setTimeout(function(){
+
+            continueBtn.classList.add("show");
+
+        },1200);
+
+    }else{
+
+        error.innerText="Hmm... that's not the secret number ♡";
+
+        input.value="";
+
+    }
+
+}
+
+function nextPage(){
+
+    document.body.style.transition="1s ease";
+    document.body.style.opacity="0";
+
+    setTimeout(function(){
+
+        window.location.href="activity2.html";
+
+    },1000);
+
+}
+
+</script>
+
+</body>
+</html>
