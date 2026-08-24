@@ -1,0 +1,784 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Little Things About You ♡</title>
+
+<style>
+@import url('https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;500;600&family=Great+Vibes&display=swap');
+
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+}
+
+body{
+    min-height:100vh;
+    overflow:hidden;
+    background:
+        radial-gradient(circle at 50% 35%,#43182b,#190a13 52%,#060608);
+    color:white;
+    font-family:'Cormorant Garamond',serif;
+}
+
+/* BACKGROUND */
+
+.glow{
+    position:fixed;
+    width:500px;
+    height:500px;
+    left:50%;
+    top:50%;
+    transform:translate(-50%,-50%);
+
+    background:#d43d78;
+    filter:blur(180px);
+    opacity:.12;
+
+    animation:glowPulse 7s ease-in-out infinite alternate;
+}
+
+@keyframes glowPulse{
+    from{
+        transform:translate(-50%,-50%) scale(.85);
+    }
+
+    to{
+        transform:translate(-50%,-50%) scale(1.25);
+    }
+}
+
+/* FLOATING HEARTS */
+
+.floating-heart{
+    position:fixed;
+    color:#ff719c;
+    opacity:0;
+    pointer-events:none;
+    animation:floatHeart 11s linear infinite;
+}
+
+.f1{
+    left:8%;
+    animation-delay:1s;
+}
+
+.f2{
+    left:20%;
+    animation-delay:4s;
+}
+
+.f3{
+    left:80%;
+    animation-delay:2s;
+}
+
+.f4{
+    left:91%;
+    animation-delay:6s;
+}
+
+.f5{
+    left:48%;
+    animation-delay:8s;
+}
+
+@keyframes floatHeart{
+
+    0%{
+        transform:translateY(110vh) scale(.5);
+        opacity:0;
+    }
+
+    20%{
+        opacity:.2;
+    }
+
+    80%{
+        opacity:.18;
+    }
+
+    100%{
+        transform:translateY(-15vh) scale(1);
+        opacity:0;
+    }
+}
+
+
+/* MAIN */
+
+.container{
+    position:relative;
+    z-index:5;
+
+    width:min(950px,92%);
+    min-height:100vh;
+
+    margin:auto;
+
+    display:flex;
+    flex-direction:column;
+
+    align-items:center;
+    justify-content:center;
+
+    text-align:center;
+
+    padding:30px 0;
+}
+
+
+/* TITLE */
+
+.chapter{
+    font-size:11px;
+    letter-spacing:5px;
+    text-transform:uppercase;
+    color:#c9a4b2;
+    margin-bottom:12px;
+}
+
+h1{
+    font-family:'Great Vibes',cursive;
+    font-size:clamp(50px,7vw,78px);
+    font-weight:400;
+    color:#ffe8ef;
+    line-height:1;
+}
+
+.subtitle{
+    margin-top:10px;
+    color:#b99aa6;
+    font-size:18px;
+    font-style:italic;
+}
+
+
+/* CARDS */
+
+.cards{
+    width:100%;
+    max-width:900px;
+
+    display:grid;
+    grid-template-columns:repeat(3,1fr);
+
+    gap:16px;
+
+    margin-top:25px;
+}
+
+
+/* EACH CARD */
+
+.card{
+    position:relative;
+
+    min-height:155px;
+
+    padding:20px 16px;
+
+    border-radius:20px;
+
+    border:1px solid rgba(255,113,156,.20);
+
+    background:
+        linear-gradient(
+            145deg,
+            rgba(105,32,58,.30),
+            rgba(13,6,11,.75)
+        );
+
+    box-shadow:
+        0 15px 40px rgba(0,0,0,.25),
+        inset 0 0 25px rgba(255,100,150,.025);
+
+    display:flex;
+    flex-direction:column;
+    align-items:center;
+    justify-content:center;
+
+    opacity:0;
+    transform:translateY(25px) scale(.96);
+
+    animation:cardAppear 1.2s ease forwards;
+
+    overflow:hidden;
+}
+
+
+/* SHIMMER BORDER */
+
+.card::before{
+    content:"";
+
+    position:absolute;
+    inset:-2px;
+
+    border-radius:22px;
+
+    border:1px solid transparent;
+
+    background:
+        linear-gradient(
+            120deg,
+            transparent,
+            rgba(255,113,156,.35),
+            transparent
+        ) border-box;
+
+    mask:
+        linear-gradient(#fff 0 0) padding-box,
+        linear-gradient(#fff 0 0);
+
+    mask-composite:exclude;
+
+    opacity:0;
+
+    animation:cardShimmer 4s ease-in-out infinite;
+}
+
+@keyframes cardShimmer{
+
+    0%,100%{
+        opacity:0;
+    }
+
+    50%{
+        opacity:1;
+    }
+}
+
+
+/* CARD TIMING */
+
+.card:nth-child(1){
+    animation-delay:2s;
+}
+
+.card:nth-child(2){
+    animation-delay:8s;
+}
+
+.card:nth-child(3){
+    animation-delay:14s;
+}
+
+.card:nth-child(4){
+    animation-delay:20s;
+}
+
+.card:nth-child(5){
+    animation-delay:26s;
+}
+
+.card:nth-child(6){
+    animation-delay:32s;
+}
+
+
+@keyframes cardAppear{
+
+    0%{
+        opacity:0;
+        transform:translateY(30px) scale(.94);
+    }
+
+    70%{
+        opacity:1;
+        transform:translateY(-3px) scale(1.01);
+    }
+
+    100%{
+        opacity:1;
+        transform:translateY(0) scale(1);
+    }
+}
+
+
+/* CARD CONTENT */
+
+.card-icon{
+    font-size:25px;
+    color:#ff719c;
+    margin-bottom:8px;
+
+    animation:heartBeat 2.2s ease-in-out infinite;
+}
+
+@keyframes heartBeat{
+
+    0%,100%{
+        transform:scale(1);
+    }
+
+    50%{
+        transform:scale(1.18);
+    }
+}
+
+.card h2{
+    font-family:'Great Vibes',cursive;
+    font-size:30px;
+    font-weight:400;
+    color:#ffe4eb;
+    margin-bottom:5px;
+}
+
+.card p{
+    color:#c9b0b8;
+    font-size:15px;
+    line-height:1.4;
+}
+
+
+/* PROGRESS */
+
+.progress-area{
+    width:100%;
+    max-width:900px;
+    margin-top:18px;
+}
+
+.progress-line{
+    width:100%;
+    height:2px;
+    background:#321522;
+    border-radius:20px;
+    overflow:hidden;
+}
+
+.progress{
+    width:0%;
+    height:100%;
+
+    background:
+        linear-gradient(
+            90deg,
+            #74314d,
+            #ff719c
+        );
+
+    animation:progress45 45s linear forwards;
+}
+
+@keyframes progress45{
+
+    from{
+        width:0%;
+    }
+
+    to{
+        width:100%;
+    }
+}
+
+.progress-text{
+    margin-top:5px;
+    text-align:right;
+    color:#806571;
+    font-size:11px;
+}
+
+
+/* BUTTON */
+
+.continue{
+    margin-top:15px;
+
+    padding:11px 30px;
+
+    border-radius:40px;
+
+    border:1px solid #a34063;
+
+    background:rgba(130,30,65,.20);
+
+    color:#ffeaf1;
+
+    font-family:'Cormorant Garamond',serif;
+
+    font-size:17px;
+
+    cursor:pointer;
+
+    opacity:0;
+
+    pointer-events:none;
+
+    transform:translateY(10px);
+
+    transition:
+        opacity .6s ease,
+        transform .6s ease,
+        background .4s ease;
+}
+
+.continue.ready{
+    opacity:1;
+    pointer-events:auto;
+    transform:translateY(0);
+}
+
+.continue:hover{
+    background:#a72e59;
+    transform:translateY(-3px);
+
+    box-shadow:
+        0 12px 35px rgba(255,60,120,.20);
+}
+
+
+/* PARTICLES */
+
+.particle{
+    position:fixed;
+
+    left:50%;
+    top:50%;
+
+    z-index:50;
+
+    color:#ff719c;
+
+    font-size:20px;
+
+    pointer-events:none;
+
+    animation:particleFly 1.5s ease-out forwards;
+}
+
+@keyframes particleFly{
+
+    0%{
+        transform:
+            translate(-50%,-50%)
+            scale(.2);
+
+        opacity:1;
+    }
+
+    100%{
+        transform:
+            translate(
+                calc(-50% + var(--x)),
+                calc(-50% + var(--y))
+            )
+            scale(1.2);
+
+        opacity:0;
+    }
+}
+
+
+/* MOBILE */
+
+@media(max-width:750px){
+
+    body{
+        overflow:auto;
+    }
+
+    .container{
+        min-height:100vh;
+        padding:45px 0;
+    }
+
+    .cards{
+        grid-template-columns:1fr;
+        max-width:400px;
+        gap:13px;
+    }
+
+    .card{
+        min-height:135px;
+    }
+
+    .card:nth-child(1){
+        animation-delay:2s;
+    }
+
+    .card:nth-child(2){
+        animation-delay:8s;
+    }
+
+    .card:nth-child(3){
+        animation-delay:14s;
+    }
+
+    .card:nth-child(4){
+        animation-delay:20s;
+    }
+
+    .card:nth-child(5){
+        animation-delay:26s;
+    }
+
+    .card:nth-child(6){
+        animation-delay:32s;
+    }
+
+    .card p{
+        font-size:15px;
+    }
+}
+
+</style>
+</head>
+
+
+<body>
+
+<div class="glow"></div>
+
+
+<div class="floating-heart f1">♡</div>
+<div class="floating-heart f2">♥</div>
+<div class="floating-heart f3">♡</div>
+<div class="floating-heart f4">♥</div>
+<div class="floating-heart f5">♡</div>
+
+
+<div class="container">
+
+    <div class="chapter">
+        little things · 06
+    </div>
+
+
+    <h1>
+        Little Things About You
+    </h1>
+
+
+    <div class="subtitle">
+        the things you probably don't realise I notice... ♡
+    </div>
+
+
+    <div class="cards">
+
+        <!-- 1 -->
+
+        <div class="card">
+
+            <div class="card-icon">♡</div>
+
+            <h2>
+                Your Smile
+            </h2>
+
+            <p>
+                The way your smile changes your
+                whole face... I don't think you
+                realise how beautiful it is.
+            </p>
+
+        </div>
+
+
+        <!-- 2 -->
+
+        <div class="card">
+
+            <div class="card-icon">♥</div>
+
+            <h2>
+                Your Eyes
+            </h2>
+
+            <p>
+                There is something about your eyes
+                that makes even an ordinary moment
+                feel a little different.
+            </p>
+
+        </div>
+
+
+        <!-- 3 -->
+
+        <div class="card">
+
+            <div class="card-icon">♡</div>
+
+            <h2>
+                Your Voice
+            </h2>
+
+            <p>
+                Somehow hearing you talk can make
+                even a difficult day feel a little
+                less heavy.
+            </p>
+
+        </div>
+
+
+        <!-- 4 -->
+
+        <div class="card">
+
+            <div class="card-icon">♥</div>
+
+            <h2>
+                Your Habits
+            </h2>
+
+            <p>
+                All those tiny things you do without
+                thinking somehow became my favourite
+                little things.
+            </p>
+
+        </div>
+
+
+        <!-- 5 -->
+
+        <div class="card">
+
+            <div class="card-icon">♡</div>
+
+            <h2>
+                Your Care
+            </h2>
+
+            <p>
+                The small ways you show that you care,
+                even when you don't realise I'm
+                noticing them.
+            </p>
+
+        </div>
+
+
+        <!-- 6 -->
+
+        <div class="card">
+
+            <div class="card-icon">♥</div>
+
+            <h2>
+                Just You
+            </h2>
+
+            <p>
+                Maybe that's what I love most...
+                you never had to be perfect to become
+                so special to me.
+            </p>
+
+        </div>
+
+    </div>
+
+
+    <!-- 45 SECOND PROGRESS -->
+
+    <div class="progress-area">
+
+        <div class="progress-line">
+
+            <div class="progress"></div>
+
+        </div>
+
+        <div class="progress-text">
+            take your time... there is no rush ♡
+        </div>
+
+    </div>
+
+
+    <button
+        class="continue"
+        id="continueBtn"
+        onclick="goNext()">
+
+        Continue → ♡
+
+    </button>
+
+</div>
+
+
+<script>
+
+/* 45 SECOND TIMER */
+
+setTimeout(function(){
+
+    document
+        .getElementById("continueBtn")
+        .classList.add("ready");
+
+    createParticles();
+
+},45000);
+
+
+/* HEART PARTICLES */
+
+function createParticles(){
+
+    for(let i=0;i<22;i++){
+
+        const particle =
+            document.createElement("div");
+
+        particle.className="particle";
+
+        particle.innerHTML =
+            Math.random() > .5
+            ? "♡"
+            : "♥";
+
+        particle.style.setProperty(
+            "--x",
+            ((Math.random()-.5)*550)+"px"
+        );
+
+        particle.style.setProperty(
+            "--y",
+            ((Math.random()-.5)*400)+"px"
+        );
+
+        document.body.appendChild(particle);
+
+        setTimeout(function(){
+
+            particle.remove();
+
+        },1600);
+    }
+}
+
+
+/* NEXT PAGE */
+
+function goNext(){
+
+    createParticles();
+
+    document.body.style.transition =
+        "1s ease";
+
+    document.body.style.opacity =
+        "0";
+
+    setTimeout(function(){
+
+        window.location.href =
+            "final.html";
+
+    },1000);
+}
+
+</script>
+
+</body>
+</html>
