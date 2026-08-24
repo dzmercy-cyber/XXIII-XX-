@@ -1,0 +1,681 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Our Story ♡</title>
+
+<style>
+@import url('https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;500;600&family=Great+Vibes&display=swap');
+
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+}
+
+body{
+    min-height:100vh;
+    overflow:hidden;
+
+    background:
+        radial-gradient(circle at 50% 35%,#42182a,#190b13 50%,#07070a);
+
+    color:#fff;
+    font-family:'Cormorant Garamond',serif;
+}
+
+/* BACKGROUND */
+
+.glow{
+    position:fixed;
+    width:500px;
+    height:500px;
+    left:50%;
+    top:40%;
+
+    transform:translate(-50%,-50%);
+
+    background:#d43d78;
+    filter:blur(180px);
+
+    opacity:.11;
+
+    animation:glow 7s ease-in-out infinite alternate;
+}
+
+@keyframes glow{
+    from{
+        transform:translate(-50%,-50%) scale(.9);
+    }
+
+    to{
+        transform:translate(-50%,-50%) scale(1.25);
+    }
+}
+
+/* FLOATING HEARTS */
+
+.heart{
+    position:fixed;
+    color:#ff719c;
+    opacity:0;
+
+    animation:float 11s linear infinite;
+
+    pointer-events:none;
+}
+
+.h1{left:8%;animation-delay:1s;}
+.h2{left:18%;animation-delay:5s;}
+.h3{left:82%;animation-delay:3s;}
+.h4{left:92%;animation-delay:7s;}
+.h5{left:48%;animation-delay:9s;}
+
+@keyframes float{
+
+    0%{
+        transform:translateY(110vh) scale(.5);
+        opacity:0;
+    }
+
+    20%{
+        opacity:.2;
+    }
+
+    80%{
+        opacity:.18;
+    }
+
+    100%{
+        transform:translateY(-15vh) scale(1);
+        opacity:0;
+    }
+}
+
+
+/* MAIN */
+
+.container{
+    position:relative;
+    z-index:5;
+
+    width:min(1000px,92%);
+
+    min-height:100vh;
+
+    margin:auto;
+
+    display:flex;
+    align-items:center;
+    justify-content:center;
+
+    gap:55px;
+
+    animation:pageIn 1.4s ease;
+}
+
+@keyframes pageIn{
+
+    from{
+        opacity:0;
+        transform:translateY(25px);
+    }
+
+    to{
+        opacity:1;
+        transform:translateY(0);
+    }
+}
+
+
+/* PHOTO */
+
+.photo-area{
+    width:390px;
+    height:480px;
+
+    position:relative;
+
+    flex-shrink:0;
+}
+
+.photo{
+
+    position:absolute;
+
+    width:330px;
+    height:420px;
+
+    left:50%;
+    top:50%;
+
+    transform:translate(-50%,-50%) rotate(-3deg);
+
+    padding:9px;
+
+    background:#f8e9ed;
+
+    box-shadow:
+        0 25px 70px rgba(0,0,0,.55);
+
+    transition:1s ease;
+
+    animation:photoFloat 5s ease-in-out infinite;
+}
+
+@keyframes photoFloat{
+
+    0%,100%{
+        transform:translate(-50%,-50%) rotate(-3deg);
+    }
+
+    50%{
+        transform:translate(-50%,-53%) rotate(2deg);
+    }
+}
+
+.photo img{
+
+    width:100%;
+    height:100%;
+
+    object-fit:cover;
+
+    display:block;
+
+    background:#351522;
+}
+
+.photo-caption{
+
+    position:absolute;
+
+    bottom:-38px;
+    left:50%;
+
+    transform:translateX(-50%);
+
+    width:100%;
+
+    color:#b99aa6;
+
+    font-size:14px;
+
+    letter-spacing:2px;
+
+    text-align:center;
+}
+
+
+/* STORY */
+
+.story{
+
+    max-width:500px;
+
+    text-align:left;
+}
+
+.chapter{
+
+    font-size:11px;
+
+    letter-spacing:5px;
+
+    text-transform:uppercase;
+
+    color:#c9a4b2;
+
+    margin-bottom:15px;
+}
+
+h1{
+
+    font-family:'Great Vibes',cursive;
+
+    font-size:clamp(58px,7vw,82px);
+
+    font-weight:400;
+
+    line-height:1;
+
+    color:#ffe8ef;
+}
+
+.line{
+
+    width:65px;
+    height:1px;
+
+    margin:20px 0;
+
+    background:#a34063;
+}
+
+
+/* STORY TEXT */
+
+.story-text{
+
+    color:#d9c4ca;
+
+    font-size:19px;
+
+    line-height:1.7;
+
+    min-height:210px;
+
+    opacity:0;
+
+    animation:textReveal 2s ease forwards;
+
+    animation-delay:1s;
+}
+
+@keyframes textReveal{
+
+    from{
+        opacity:0;
+        transform:translateY(15px);
+    }
+
+    to{
+        opacity:1;
+        transform:translateY(0);
+    }
+}
+
+.story-text p{
+
+    margin-bottom:15px;
+}
+
+.highlight{
+
+    color:#ff91ad;
+}
+
+
+/* 45 SECOND PROGRESS */
+
+.progress-area{
+
+    margin-top:22px;
+
+    width:100%;
+}
+
+.progress-line{
+
+    width:100%;
+    height:2px;
+
+    background:#351725;
+
+    overflow:hidden;
+
+    border-radius:10px;
+}
+
+.progress{
+
+    height:100%;
+    width:0%;
+
+    background:
+        linear-gradient(
+            90deg,
+            #74314d,
+            #ff719c
+        );
+
+    animation:progress 45s linear forwards;
+}
+
+@keyframes progress{
+
+    from{
+        width:0%;
+    }
+
+    to{
+        width:100%;
+    }
+}
+
+.progress-text{
+
+    margin-top:7px;
+
+    color:#806571;
+
+    font-size:12px;
+
+    text-align:right;
+}
+
+
+/* CONTINUE */
+
+.continue{
+
+    margin-top:20px;
+
+    padding:12px 30px;
+
+    border-radius:40px;
+
+    border:1px solid #a34063;
+
+    background:rgba(130,30,65,.2);
+
+    color:#ffeaf1;
+
+    font-family:'Cormorant Garamond',serif;
+
+    font-size:17px;
+
+    cursor:pointer;
+
+    opacity:0;
+
+    pointer-events:none;
+
+    transition:.5s;
+}
+
+.continue.ready{
+
+    opacity:1;
+    pointer-events:auto;
+}
+
+.continue:hover{
+
+    background:#a72e59;
+
+    transform:translateY(-3px);
+
+    box-shadow:
+        0 12px 35px rgba(255,60,120,.2);
+}
+
+
+/* PARTICLES */
+
+.particle{
+
+    position:fixed;
+
+    left:50%;
+    top:50%;
+
+    color:#ff719c;
+
+    font-size:20px;
+
+    pointer-events:none;
+
+    z-index:50;
+
+    animation:particle 1.5s ease-out forwards;
+}
+
+@keyframes particle{
+
+    0%{
+        transform:
+            translate(-50%,-50%)
+            scale(.2);
+
+        opacity:1;
+    }
+
+    100%{
+
+        transform:
+            translate(
+                calc(-50% + var(--x)),
+                calc(-50% + var(--y))
+            )
+            scale(1.2);
+
+        opacity:0;
+    }
+}
+
+
+/* MOBILE */
+
+@media(max-width:800px){
+
+    body{
+        overflow:auto;
+    }
+
+    .container{
+
+        padding:60px 0 50px;
+
+        flex-direction:column;
+
+        gap:25px;
+    }
+
+    .photo-area{
+
+        width:280px;
+        height:350px;
+    }
+
+    .photo{
+
+        width:250px;
+        height:310px;
+    }
+
+    .story{
+
+        text-align:center;
+    }
+
+    .line{
+
+        margin:18px auto;
+    }
+
+    .story-text{
+
+        font-size:17px;
+    }
+
+    .progress-area{
+
+        width:90%;
+        margin:20px auto 0;
+    }
+}
+
+</style>
+</head>
+
+<body>
+
+<div class="glow"></div>
+
+<div class="heart h1">♡</div>
+<div class="heart h2">♥</div>
+<div class="heart h3">♡</div>
+<div class="heart h4">♥</div>
+<div class="heart h5">♡</div>
+
+
+<div class="container">
+
+
+    <!-- PHOTO -->
+
+    <div class="photo-area">
+
+        <div class="photo">
+
+            <!-- BAAD MEIN PHOTO KA NAAM YAHAN DENA -->
+
+            <img
+                src="our-photo.jpg"
+                alt="Our memory"
+            >
+
+        </div>
+
+        <div class="photo-caption">
+            one of my favourite memories ♡
+        </div>
+
+    </div>
+
+
+    <!-- STORY -->
+
+    <div class="story">
+
+        <div class="chapter">
+            our story · 05
+        </div>
+
+        <h1>
+            Our Story
+        </h1>
+
+        <div class="line"></div>
+
+
+        <div class="story-text">
+
+            <p>
+                This is where our story begins...
+            </p>
+
+            <p>
+                <span class="highlight">
+                    Your story will go here.
+                </span>
+                Tell her about the little moments,
+                the unexpected conversations,
+                the smiles, the memories,
+                and everything that slowly became
+                something special.
+            </p>
+
+            <p>
+                And maybe the best part of our story
+                is that it is still being written. ♡
+            </p>
+
+        </div>
+
+
+        <!-- 45 SECOND PROGRESS -->
+
+        <div class="progress-area">
+
+            <div class="progress-line">
+
+                <div class="progress"></div>
+
+            </div>
+
+            <div class="progress-text">
+                let the memories stay a little longer...
+            </div>
+
+        </div>
+
+
+        <button
+            class="continue"
+            id="continueBtn"
+            onclick="goNext()">
+
+            Continue → 
+
+        </button>
+
+    </div>
+
+</div>
+
+
+<script>
+
+/* WAIT 45 SECONDS */
+
+setTimeout(function(){
+
+    document
+        .getElementById("continueBtn")
+        .classList.add("ready");
+
+    createParticles();
+
+},45000);
+
+
+/* HEART PARTICLES */
+
+function createParticles(){
+
+    for(let i=0;i<18;i++){
+
+        const particle=
+            document.createElement("div");
+
+        particle.className="particle";
+
+        particle.innerHTML=
+            Math.random()>.5
+            ? "♡"
+            : "♥";
+
+        particle.style.setProperty(
+            "--x",
+            ((Math.random()-.5)*500)+"px"
+        );
+
+        particle.style.setProperty(
+            "--y",
+            ((Math.random()-.5)*400)+"px"
+        );
+
+        document.body.appendChild(particle);
+
+        setTimeout(function(){
+
+            particle.remove();
+
+        },1600);
+    }
+}
+
+
+/* NEXT PAGE */
+
+function goNext(){
+
+    document.body.style.transition="1s ease";
+
+    document.body.style.opacity="0";
+
+    setTimeout(function(){
+
+        window.location.href="little-things.html";
+
+    },1000);
+}
+
+</script>
+
+</body>
+</html>
